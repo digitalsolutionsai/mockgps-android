@@ -4,6 +4,10 @@
 
     <!-- Coarse is enough: it satisfies the location foreground-service type and Play services' mock APIs. -->
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <!-- MapLibre declares fine location for its location component, which the app doesn't use. -->
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION"
+        tools:node="remove" />
     <!-- Makes the app show up under Developer options → "Select mock location app". -->
     <uses-permission
         android:name="android.permission.ACCESS_MOCK_LOCATION"

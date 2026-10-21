@@ -11,6 +11,7 @@ import android.view.Gravity
 import androidx.core.content.ContextCompat
 import androidx.core.graphics.createBitmap
 import androidx.core.graphics.drawable.toBitmap
+import org.maplibre.android.camera.CameraUpdate
 import org.maplibre.android.camera.CameraUpdateFactory
 import org.maplibre.android.geometry.LatLngBounds
 import org.maplibre.android.maps.MapLibreMap
@@ -83,6 +84,8 @@ class MapHolder(ctx: Context, dark: Boolean) {
     private var mockBearing: Double? = null
     private var insetTop = 0
     private var insetBottom = 0
+    /** Restarts the camera animation in progress; a padding change cancels it (e.g. the keyboard closing after a search). */
+    private var flight: (() -> Unit)? = null
 
     init {
         view.getMapAsync { m ->
@@ -98,6 +101,10 @@ class MapHolder(ctx: Context, dark: Boolean) {
             m.addOnCameraMoveStartedListener { reason ->
                 if (reason == MapLibreMap.OnCameraMoveStartedListener.REASON_API_GESTURE) onUserGesture()
             }
+            // MapView makes itself focusable once ready; after a search clears focus it would then get the
+            // Enter key-up from a hardware keyboard and zoom in, cancelling the move to the result.
+            view.isFocusable = false
+            view.isFocusableInTouchMode = false
             applyInsets()
             m.setStyle(Style.Builder().fromUri(if (dark) STYLE_DARK else STYLE_LIGHT)) { s ->
                 runCatching { localizeLabels(s) }.onFailure { Log.w(TAG, "localize labels", it) }
@@ -136,7 +143,9 @@ class MapHolder(ctx: Context, dark: Boolean) {
         val h = view.height
         if (h == 0) return
         val bottom = if (insetBottom > 0) (h - insetBottom).coerceAtLeast(0) else 0
+        val interrupted = flight
         m.moveCamera(CameraUpdateFactory.paddingTo(0.0, insetTop.toDouble(), 0.0, bottom.toDouble()))
+        interrupted?.invoke()
         val margin = (8 * density).roundToInt()
         m.uiSettings.setAttributionMargins(margin, insetTop + margin, margin, margin)
         m.uiSettings.setCompassMargins(margin, insetTop + margin, margin, margin)
@@ -157,7 +166,7 @@ class MapHolder(ctx: Context, dark: Boolean) {
 
     fun moveTo(p: LatLng, minZoom: Double? = null) = withMap { m ->
         val zoom = maxOf(minZoom ?: 0.0, m.cameraPosition.zoom)
-        m.animateCamera(CameraUpdateFactory.newLatLngZoom(p.ml(), zoom), 500)
+        animate(m, CameraUpdateFactory.newLatLngZoom(p.ml(), zoom), 500)
     }
 
     fun jumpTo(p: LatLng, zoom: Double) = withMap { m ->
@@ -168,8 +177,20 @@ class MapHolder(ctx: Context, dark: Boolean) {
         if (points.size < 2) return
         withMap { m ->
             val bounds = LatLngBounds.Builder().includes(points.map { it.ml() }).build()
-            m.animateCamera(CameraUpdateFactory.newLatLngBounds(bounds, (40 * density).roundToInt()), 700)
+            animate(m, CameraUpdateFactory.newLatLngBounds(bounds, (40 * density).roundToInt()), 700)
         }
+    }
+
+    private fun animate(m: MapLibreMap, update: CameraUpdate, ms: Int) {
+        val restart: () -> Unit = { animate(m, update, ms) }
+        flight = restart
+        m.animateCamera(update, ms, object : MapLibreMap.CancelableCallback {
+            override fun onCancel() = done()
+            override fun onFinish() = done()
+            private fun done() {
+                if (flight === restart) flight = null
+            }
+        })
     }
 
     private fun drawStatic() {

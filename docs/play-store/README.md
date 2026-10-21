@@ -49,6 +49,18 @@ Tạo lại bằng script:
 - Feature graphic: `tools/make-feature-graphic.py`.
 - Kiểm tra bản dịch và độ dài listing: `tools/check-translations.py`.
 
+Đẩy lên Play bằng `tools/play-publish.py`, gồm chữ, ảnh chụp, icon, feature graphic, email và website liên hệ:
+- `--status`: xem những gì đang có trên Play.
+- `--validate`: chạy thử, không lưu gì.
+- `--text-only` và `--only vi,ja-JP`: chỉ đẩy một phần.
+- `--bundle app/build/outputs/bundle/release/app-release.aab --notes "..."`: đưa bản mới lên Internal testing. Nhớ tăng `versionCode` trước khi build.
+
+Script không dùng file key, vì tổ chức Cloud chặn tạo key cho service account. Thay vào đó:
+- Đăng nhập `gcloud auth login` bằng tài khoản có quyền *Service Account Token Creator* trên `mockgps-publisher@dsai-play-publisher.iam.gserviceaccount.com`.
+- Service account này được mời trong Play Console, có quyền listing và testing, không có quyền phát hành production.
+- Mỗi lần đẩy đủ ảnh mất khoảng 8 phút.
+- Trong lúc script chạy, đừng sửa Store listing trên Console vì sẽ xung đột.
+
 Tránh trong listing và tên:
 - các từ "fake", "cheat", "prank", "hide location",
 - tên game (Pokémon GO…) hoặc tên app khác,
@@ -90,17 +102,21 @@ Không thu thập: thông tin cá nhân, tài chính, danh bạ, ảnh, định 
 - **Type:** Location (`FOREGROUND_SERVICE_LOCATION`)
 - **Use case:** Other → "Developer tool: mock location provider"
 - **Description:**
-  > MockGPS is a developer tool that supplies a simulated location to the system after the user selects it under Developer options → Select mock location app. When the user starts a simulation (a fixed point, a route or the joystick), a foreground service pushes the simulated position to the LocationManager test providers and the fused location provider every second. A persistent notification shows the current state with Pause and Stop actions. The service stops as soon as the user taps Stop.
+  > MockGPS is a developer tool that supplies a simulated location to the system after the user selects it under Developer options → Select mock location app. When the user starts a simulation (a fixed point, a route or the joystick), a foreground service pushes the simulated position to the LocationManager test providers and the fused location provider every second. A persistent notification shows the current state with Stop and Joystick actions, plus Pause during route playback. The service stops as soon as the user taps Stop.
 - **User impact if deferred or interrupted:**
   > Other apps immediately fall back to the real device location, which breaks the user's test session (for example, a route being replayed stops in the middle).
 - **Video:** quay màn hình 30–60 giây:
   1. mở app,
   2. chọn một điểm, bấm *Bắt đầu giả lập*,
   3. kéo thanh thông báo xuống, thấy thông báo "Đang giả lập",
-  4. mở Google Maps, thấy vị trí đã đổi,
-  5. bấm *Dừng*.
+  4. mở rộng thông báo đó, bấm *Dừng*, thông báo biến mất.
 
-  Upload lên YouTube (unlisted) rồi dán link.
+  Upload lên YouTube (unlisted) rồi dán link dạng `https://www.youtube.com/watch?v=<id>`. Video dọc sẽ bị YouTube xếp vào Shorts, nên nếu nhận link `/shorts/<id>` thì đổi sang dạng `watch?v=`.
+
+  Lưu ý khi quay lại video:
+  - Dùng toạ độ ở xa (ví dụ Paris) để không lộ vị trí thật.
+  - Làm mờ các thông báo khác trong thanh thông báo.
+  - Google Maps chỉ hiện chấm xanh nếu đã có quyền vị trí.
 
 ## 8. Điều khoản dịch vụ bên thứ ba (đã kiểm tra)
 
