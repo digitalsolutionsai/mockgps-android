@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- common -->
+    <string name="common_back">Quay lại</string>
+    <string name="common_save">Lưu</string>
+    <string name="common_cancel">Hủy</string>
+    <string name="common_stop">Dừng</string>
+    <string name="common_pause">Tạm dừng</string>
+    <string name="common_resume">Tiếp tục</string>
+    <string name="common_copied">Đã sao chép</string>
+    <string name="common_copy_command">Sao chép lệnh</string>
+    <!-- Status texts shared by the map card and the notification -->
+    <string name="common_arrived">Đã đến đích</string>
+    <string name="common_route_paused">Tạm dừng tuyến</string>
+    <string name="common_following_route">Đang đi theo tuyến · %1$d km/h</string>
+    <string name="common_mocking">Đang giả lập vị trí</string>
+
+    <!-- durations: %1$d = minutes, or hours and minutes -->
+    <string name="duration_minutes">%1$d phút</string>
+    <string name="duration_hours_minutes">%1$d giờ %2$d phút</string>
+
+    <!-- notification -->
+    <string name="notif_channel_name">Giả lập vị trí</string>
+    <string name="notif_preparing">Đang chuẩn bị…</string>
+    <string name="notif_moving_joystick">Đang di chuyển bằng joystick</string>
+    <!-- %1$s = coordinates, %2$s = distance covered, %3$s = total distance -->
+    <string name="notif_route_text">%1$s · %2$s / %3$s</string>
+    <string name="notif_action_joystick">Joystick</string>
+    <string name="notif_action_hide_joystick">Ẩn joystick</string>
+
+    <!-- joystick overlay -->
+    <string name="joystick_run">Chạy</string>
+    <string name="joystick_speed">Tốc độ</string>
+    <!-- %1$s = speed name, %2$d = speed in km/h -->
+    <string name="joystick_speed_label">%1$s %2$d km/h</string>
+
+    <!-- errors and toasts from the service and the network layer -->
+    <string name="error_no_favorite">Không có điểm yêu thích \"%1$s\"</string>
+    <!-- %1$s = query, %2$s = reason -->
+    <string name="error_search_failed">Không tìm được \"%1$s\": %2$s</string>
+    <string name="error_detail_no_results">không có kết quả</string>
+    <string name="error_missing_coordinates">Thiếu tọa độ</string>
+    <string name="error_no_route">Chưa có tuyến đường</string>
+    <string name="error_route_min_points">Tuyến cần ít nhất 2 điểm</string>
+    <string name="error_route_too_short">Tuyến quá ngắn</string>
+    <!-- %1$s = reason -->
+    <string name="error_route_failed">Không tìm được đường: %1$s</string>
+    <string name="error_detail_route_too_short">tuyến quá ngắn</string>
+    <string name="error_detail_route_not_found">không tìm được đường</string>
+    <string name="error_detail_server_busy">máy chủ đang quá tải, thử lại sau</string>
+    <string name="error_detail_network">lỗi mạng</string>
+    <string name="error_no_start_position">Chưa có vị trí để bắt đầu</string>
+    <string name="error_invalid_coordinates">Tọa độ không hợp lệ</string>
+    <string name="error_not_mock_app">Chưa chọn MockGPS làm \"ứng dụng vị trí mô phỏng\" trong Tùy chọn nhà phát triển</string>
+    <string name="error_no_source">Chưa bật nguồn vị trí nào trong Cài đặt</string>
+    <string name="error_mock_app_lost">MockGPS không còn là ứng dụng vị trí mô phỏng</string>
+    <!-- %1$s = reason -->
+    <string name="error_foreground_failed">Không chạy được dịch vụ nền: %1$s</string>
+    <string name="error_overlay_permission">Joystick cần quyền \"Hiển thị trên các ứng dụng khác\"</string>
+
+    <!-- map: search bar, menu, status cards -->
+    <string name="map_search_hint">Địa chỉ, tọa độ hoặc link Google Maps</string>
+    <string name="map_search_clear">Xóa</string>
+    <string name="map_menu">Menu</string>
+    <string name="map_menu_about">Giới thiệu &amp; quyền riêng tư</string>
+    <string name="map_my_location">Về vị trí hiện tại</string>
+    <string name="map_result_coordinates">Tọa độ</string>
+    <!-- %1$s = error message -->
+    <string name="map_search_error">Lỗi tìm kiếm: %1$s</string>
+    <string name="map_no_results">Không tìm thấy kết quả</string>
+    <string name="map_running_moving">Đang di chuyển · %1$d km/h</string>
+    <string name="map_no_location_permission">Chưa có quyền vị trí: chỉ giả được GPS và mạng</string>
+    <string name="map_setup_incomplete_title">Chưa thiết lập xong</string>
+    <string name="map_setup_incomplete_body">Chạm để xem các bước còn lại</string>
+
+    <!-- sheet: panes and point -->
+    <string name="sheet_pane_point">Điểm</string>
+    <string name="sheet_pane_route">Tuyến</string>
+    <string name="sheet_pane_fav">Yêu thích</string>
+    <string name="sheet_hint_select_point">Nhấn giữ trên bản đồ hoặc tìm kiếm để chọn điểm</string>
+    <string name="sheet_selected_point">Điểm đã chọn</string>
+    <string name="sheet_copy_coordinates">Sao chép tọa độ</string>
+    <string name="sheet_teleport_here">Dịch chuyển tới đây</string>
+    <string name="sheet_start_mock">Bắt đầu giả lập</string>
+    <string name="sheet_joystick_title">Joystick nổi</string>
+    <string name="sheet_joystick_desc">Di chuyển ngay trên ứng dụng khác khi đang giả lập</string>
+    <string name="sheet_joystick_permission">Cho phép MockGPS hiển thị trên ứng dụng khác rồi bật lại</string>
+    <string name="sheet_search_hint">Ô tìm kiếm nhận tọa độ \"10.7769, 106.7009\", địa chỉ hoặc link Google Maps. Bạn cũng có thể chia sẻ địa điểm từ Google Maps sang MockGPS.</string>
+
+    <!-- route -->
+    <string name="route_gpx_too_few_points">File GPX không có đủ điểm</string>
+    <!-- %1$s = error message -->
+    <string name="route_gpx_read_error">Không đọc được GPX: %1$s</string>
+    <string name="route_running">Đang chạy tuyến</string>
+    <string name="route_finding">Đang tìm đường…</string>
+    <plurals name="route_gpx_points">
+        <item quantity="other">File GPX · %1$d điểm</item>
+    </plurals>
+    <plurals name="route_point_count">
+        <item quantity="other">%1$d điểm</item>
+    </plurals>
+    <string name="route_hint_add_points">Nhấn giữ trên bản đồ để thêm điểm</string>
+    <string name="route_need_one_more">Thêm ít nhất một điểm nữa</string>
+    <string name="route_error_straight">Không tìm được đường, tạm nối thẳng</string>
+    <!-- %1$s = distance, %2$s = duration, %3$d = speed in km/h -->
+    <string name="route_estimate">%1$s · khoảng %2$s ở %3$d km/h</string>
+    <string name="route_or_open_gpx">hoặc mở file GPX</string>
+    <!-- %1$s = distance covered, %2$s = total distance -->
+    <string name="route_progress">%1$s / %2$s</string>
+    <!-- %3$s = estimated time left -->
+    <string name="route_progress_eta">%1$s / %2$s · còn %3$s</string>
+    <string name="route_undo">Bỏ điểm cuối</string>
+    <string name="route_clear">Xóa tuyến</string>
+    <string name="route_open_gpx">Mở file GPX</string>
+    <string name="route_restart">Chạy lại</string>
+    <string name="route_start">Bắt đầu đi</string>
+    <string name="route_travel_title">Phương tiện</string>
+    <string name="route_travel_foot">Đi bộ</string>
+    <string name="route_travel_bike">Xe đạp</string>
+    <string name="route_travel_motorbike">Xe máy</string>
+    <string name="route_travel_car">Ô tô</string>
+    <!-- %1$s = travel mode, %2$d = default speed in km/h -->
+    <string name="route_travel_chip">%1$s · %2$d</string>
+    <string name="route_connect_title">Nối các điểm</string>
+    <string name="route_connect_road">Theo đường</string>
+    <string name="route_connect_straight">Đường thẳng</string>
+    <string name="route_speed">Tốc độ: %1$d km/h</string>
+    <string name="route_end_title">Khi đến đích</string>
+    <string name="route_end_stop">Dừng ở đích</string>
+    <string name="route_end_loop">Lặp lại</string>
+    <string name="route_end_pingpong">Khứ hồi</string>
+
+    <!-- favorites -->
+    <string name="fav_hint_empty">Chọn một điểm rồi bấm ☆ để lưu vào đây</string>
+    <plurals name="fav_saved_count">
+        <item quantity="other">%1$d điểm đã lưu · kéo lên để xem tất cả</item>
+    </plurals>
+    <string name="fav_save">Lưu yêu thích</string>
+    <string name="fav_save_title">Lưu điểm yêu thích</string>
+    <string name="fav_name_label">Tên</string>
+    <!-- %1$s = favorite name -->
+    <string name="fav_saved">Đã lưu \"%1$s\"</string>
+    <string name="fav_deleted">Đã xóa \"%1$s\"</string>
+    <string name="fav_undo">Hoàn tác</string>
+    <string name="fav_start_now">Giả lập ngay</string>
+    <string name="fav_delete">Xóa</string>
+
+    <!-- setup -->
+    <string name="setup_title">Thiết lập</string>
+    <string name="setup_intro">Android chỉ cho một ứng dụng giả lập vị trí khi bạn chọn nó trong Tùy chọn nhà phát triển. Chỉ cần làm một lần.</string>
+    <!-- %1$s = step title -->
+    <string name="setup_step_optional">%1$s (tùy chọn)</string>
+    <string name="setup_done">Đã xong</string>
+    <string name="setup_step1_title">Bật Tùy chọn nhà phát triển</string>
+    <string name="setup_step1_body">Cài đặt → Thông tin điện thoại → Thông tin phần mềm → chạm 7 lần vào \"Số hiệu bản tạo\".</string>
+    <string name="setup_step1_action">Mở Thông tin điện thoại</string>
+    <string name="setup_step2_title">Chọn MockGPS làm ứng dụng vị trí mô phỏng</string>
+    <string name="setup_step2_body">Trong Tùy chọn nhà phát triển, tìm \"Chọn ứng dụng vị trí mô phỏng\" rồi chọn MockGPS.</string>
+    <string name="setup_step2_action">Mở Tùy chọn nhà phát triển</string>
+    <string name="setup_step3_title">Cho phép vị trí và thông báo</string>
+    <string name="setup_step3_body">Vị trí để giả lập cả nguồn fused mà phần lớn ứng dụng dùng. Thông báo hiển thị trạng thái và nút Dừng.</string>
+    <string name="setup_step3_action">Cấp quyền</string>
+    <string name="setup_step3_secondary">Cài đặt ứng dụng</string>
+    <string name="setup_step4_title">Hiển thị trên ứng dụng khác</string>
+    <string name="setup_step4_body">Chỉ cần nếu bạn dùng joystick nổi để di chuyển khi đang mở ứng dụng khác.</string>
+    <string name="setup_step4_action">Mở cài đặt</string>
+    <string name="setup_step5_title">Không giới hạn pin</string>
+    <string name="setup_step5_body">Nên bật trên Samsung, Xiaomi, Oppo để hệ thống không dừng giả lập khi tắt màn hình lâu.</string>
+    <string name="setup_step5_action">Mở cài đặt pin</string>
+    <string name="setup_quick_title">Thiết lập nhanh bằng adb</string>
+    <string name="setup_quick_body">Bỏ qua bước 2 và 3 khi máy đang cắm cáp debug:</string>
+    <string name="setup_start">Bắt đầu sử dụng</string>
+    <string name="setup_finish_steps">Hoàn thành bước 2 và 3 để tiếp tục</string>
+    <string name="setup_later">Để sau</string>
+
+    <!-- settings -->
+    <string name="settings_title">Cài đặt</string>
+    <string name="settings_running_note">Thay đổi về tín hiệu và nguồn vị trí áp dụng từ lần bắt đầu giả lập tiếp theo.</string>
+    <string name="settings_section_signal">Tín hiệu giả lập</string>
+    <string name="settings_accuracy">Độ chính xác: %1$d m</string>
+    <string name="settings_altitude">Độ cao: %1$d m</string>
+    <string name="settings_jitter_title">Dao động tự nhiên</string>
+    <string name="settings_jitter_desc">Thêm sai số vài mét như máy thu GPS thật</string>
+    <string name="settings_interval">Tần suất cập nhật</string>
+    <string name="settings_interval_500ms">0,5 giây</string>
+    <string name="settings_interval_1s">1 giây</string>
+    <string name="settings_interval_2s">2 giây</string>
+    <string name="settings_interval_5s">5 giây</string>
+    <string name="settings_section_sources">Nguồn vị trí được giả lập</string>
+    <string name="settings_source_network">Mạng</string>
+    <string name="settings_source_fused_desc">Nguồn fused của Android và Google Play services (FusedLocationProviderClient)</string>
+    <string name="settings_section_joystick">Joystick</string>
+    <string name="settings_joystick_speed">Tốc độ mặc định</string>
+    <string name="settings_speed_kmh">%1$d km/h</string>
+    <string name="settings_section_language">Ngôn ngữ</string>
+    <string name="settings_app_language">Ngôn ngữ ứng dụng</string>
+    <string name="settings_section_map">Bản đồ</string>
+    <string name="settings_theme_auto">Theo hệ thống</string>
+    <string name="settings_theme_light">Sáng</string>
+    <string name="settings_theme_dark">Tối</string>
+    <string name="settings_section_routing">Máy chủ tìm đường (OSRM)</string>
+    <string name="settings_routing_desc">Mặc định dùng máy chủ công cộng của FOSSGIS (tối đa 1 yêu cầu mỗi giây). Bạn có thể trỏ tới OSRM của riêng mình; {profile} sẽ được thay bằng foot, bike hoặc car.</string>
+    <string name="settings_routing_reset">Khôi phục mặc định</string>
+
+    <!-- adb screen -->
+    <string name="adb_title">Điều khiển bằng adb</string>
+    <string name="adb_intro">Mọi thao tác đều gọi được từ máy tính, tiện cho test tự động. Dịch vụ yêu cầu quyền android.permission.DUMP, nên chỉ chính ứng dụng và adb shell điều khiển được, ứng dụng khác thì không.</string>
+    <string name="adb_section_point">Đứng yên tại một điểm</string>
+    <string name="adb_alt_hint" tools:ignore="TypographyDashes">Thêm --es alt 25 để đặt độ cao (m).</string>
+    <string name="adb_section_query">Theo địa chỉ hoặc link Google Maps</string>
+    <string name="adb_section_fav">Điểm yêu thích đã lưu</string>
+    <string name="adb_section_route">Đi theo tuyến</string>
+    <string name="adb_route_params">by: road (bám đường) hoặc bỏ trống để nối thẳng · travel: foot, bike, motorbike, car · end: stop, loop, pingpong · speed: km/h.</string>
+    <string name="adb_section_controls">Điều khiển</string>
+    <string name="adb_section_check">Kiểm tra vị trí hệ thống đang nhận</string>
+
+    <!-- about screen -->
+    <string name="about_title">Giới thiệu</string>
+    <!-- %1$s = version name -->
+    <string name="about_app_version">MockGPS %1$s</string>
+    <string name="about_description">Công cụ giả lập vị trí cho developer và tester kiểm thử tính năng dựa trên vị trí. Phát triển bởi DSAI (dsai.vn).</string>
+    <string name="about_section_notes">Lưu ý khi sử dụng</string>
+    <string name="about_notes">Vị trí giả lập luôn được Android đánh dấu là mock (Location.isMock), nên ứng dụng có kiểm tra sẽ nhận ra. Chỉ dùng để kiểm thử ứng dụng của bạn. Không dùng để gian lận hoặc vi phạm điều khoản của dịch vụ khác.</string>
+    <string name="about_section_privacy">Quyền riêng tư</string>
+    <string name="about_privacy">Không quảng cáo, không phân tích hành vi, không tài khoản và không có máy chủ riêng. Điểm yêu thích và cài đặt chỉ lưu trên máy. Khi bạn tìm kiếm, tìm đường hoặc xem bản đồ, nội dung tìm kiếm và tọa độ liên quan được gửi trực tiếp tới các dịch vụ bên dưới.</string>
+    <string name="about_privacy_policy">Chính sách quyền riêng tư</string>
+    <string name="about_section_third_party">Dịch vụ và dữ liệu bên thứ ba</string>
+    <string name="about_third_party">• Bản đồ: OpenFreeMap, dữ liệu © OpenMapTiles © OpenStreetMap contributors (ODbL)\n• Tìm địa chỉ: Geocoder của Android (Google), Photon (komoot), Nominatim (OpenStreetMap)\n• Tìm đường: OSRM tại routing.openstreetmap.de (FOSSGIS)\n• Thư viện: MapLibre Native (BSD-2-Clause), AndroidX, Jetpack Compose, Google Play services Location</string>
+    <string name="about_osm_copyright">Bản quyền OpenStreetMap</string>
+</resources>

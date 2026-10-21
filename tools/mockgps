@@ -1,0 +1,188 @@
+#!/usr/bin/env python3
+"""Điều khiển MockGPS trên điện thoại qua adb.
+
+Ví dụ:
+  mockgps setup                          # chọn làm app vị trí mô phỏng + cấp quyền
+  mockgps set 10.7769 106.7009           # đứng yên tại tọa độ
+  mockgps set "Chợ Bến Thành"            # tìm địa chỉ / dán link Google Maps
+  mockgps fav "Nhà"                      # tới điểm yêu thích đã lưu trong app
+  mockgps route 10.7769,106.7009 10.7626,106.6602 --travel motorbike --speed 35
+  mockgps gpx chay-bo.gpx --speed 9 --end loop
+  mockgps pause | resume | stop | speed 50 | joystick on
+  mockgps status
+"""
+import argparse
+import os
+import shlex
+import subprocess
+import sys
+import tempfile
+import xml.etree.ElementTree as ET
+
+PKG = "vn.dsai.mockgps"
+SERVICE = f"{PKG}/.MockService"
+REMOTE_POINTS = "/data/local/tmp/mockgps-points.txt"
+MAX_POINTS = 4000  # keeps the --es argument well under the kernel's 128 KB per-argument limit
+
+
+def adb(serial, *args, capture=True):
+    cmd = ["adb"] + (["-s", serial] if serial else []) + list(args)
+    return subprocess.run(cmd, text=True, capture_output=capture)
+
+
+def shell(serial, command):
+    r = adb(serial, "shell", command)
+    return r.returncode, (r.stdout + r.stderr).strip()
+
+
+def call(serial, action, extras=(), tail=""):
+    parts = ["am", "start-foreground-service", "-n", SERVICE, "-a", f"{PKG}.{action}", *extras]
+    code, out = shell(serial, " ".join(shlex.quote(p) for p in parts) + tail)
+    if code or "Error" in out or "Exception" in out:
+        sys.exit(f"Lỗi: {out}")
+
+
+def extra(key, value):
+    return ["--es", key, str(value)]
+
+
+def route_extras(a):
+    ex = []
+    if a.speed is not None:
+        ex += extra("speed", a.speed)
+    if a.end:
+        ex += extra("end", a.end)
+    return ex
+
+
+def send_points(serial, points, extras):
+    if len(points) > MAX_POINTS:
+        step = len(points) / MAX_POINTS
+        points = [points[int(i * step)] for i in range(MAX_POINTS - 1)] + [points[-1]]
+    data = ";".join(f"{lat:.6f},{lng:.6f}" for lat, lng in points)
+    if len(data) < 3000:
+        call(serial, "ROUTE", extras + extra("points", data))
+        return
+    with tempfile.NamedTemporaryFile("w", suffix=".txt", delete=False) as f:
+        f.write(data)
+    try:
+        r = adb(serial, "push", f.name, REMOTE_POINTS)
+        if r.returncode:
+            sys.exit(f"Lỗi adb push: {r.stderr.strip()}")
+        call(serial, "ROUTE", extras, tail=f' --es points "$(cat {REMOTE_POINTS})"; rm -f {REMOTE_POINTS}')
+    finally:
+        os.unlink(f.name)
+
+
+def parse_point(text):
+    try:
+        lat, lng = (float(x) for x in text.replace(";", ",").split(","))
+        return lat, lng
+    except ValueError:
+        sys.exit(f"Tọa độ không hợp lệ: {text!r} (dạng lat,lng)")
+
+
+def read_gpx(path):
+    pts, wpts = [], []
+    for el in ET.parse(path).iter():
+        tag = el.tag.rsplit("}", 1)[-1]
+        if tag in ("trkpt", "rtept", "wpt") and "lat" in el.attrib and "lon" in el.attrib:
+            (wpts if tag == "wpt" else pts).append((float(el.attrib["lat"]), float(el.attrib["lon"])))
+    return pts or wpts
+
+
+def cmd_setup(serial):
+    steps = [
+        f"appops set {PKG} android:mock_location allow",
+        f"pm grant {PKG} android.permission.ACCESS_COARSE_LOCATION",
+        f"pm grant {PKG} android.permission.POST_NOTIFICATIONS",
+        f"appops set {PKG} SYSTEM_ALERT_WINDOW allow",
+    ]
+    for s in steps:
+        code, out = shell(serial, s)
+        print(("✓ " if code == 0 and not out else "• ") + s + (f"  ({out})" if out else ""))
+
+
+def cmd_status(serial):
+    _, out = shell(serial, f"dumpsys activity services {PKG}/.MockService")
+    print("Dịch vụ:", "đang chạy" if "ServiceRecord" in out else "không chạy")
+    _, out = shell(serial, "dumpsys location")
+    for line in out.splitlines():
+        s = line.strip()
+        if "last location=" in s.lower() and any(p in s for p in ("gps", "fused", "network")):
+            print(" ", s[:200])
+
+
+def main():
+    p = argparse.ArgumentParser(prog="mockgps", description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
+    p.add_argument("-s", "--serial", default=os.environ.get("ANDROID_SERIAL"), help="serial máy (như adb -s)")
+    sub = p.add_subparsers(dest="cmd", required=True)
+
+    sub.add_parser("setup", help="chọn MockGPS làm app vị trí mô phỏng và cấp quyền qua adb")
+    sp = sub.add_parser("set", help="đứng yên tại tọa độ, địa chỉ hoặc link Google Maps")
+    sp.add_argument("where", nargs="+")
+    sp.add_argument("--alt", type=float, help="độ cao (m)")
+    sp = sub.add_parser("fav", help="tới điểm yêu thích theo tên")
+    sp.add_argument("name")
+
+    for name, helptext in (("route", "đi qua các điểm lat,lng"), ("gpx", "chạy theo file GPX")):
+        sp = sub.add_parser(name, help=helptext)
+        if name == "route":
+            sp.add_argument("points", nargs="+", metavar="LAT,LNG")
+            sp.add_argument("--straight", action="store_true", help="nối thẳng, không bám đường")
+            sp.add_argument("--travel", choices=["foot", "bike", "motorbike", "car"], default="motorbike")
+        else:
+            sp.add_argument("file")
+        sp.add_argument("--speed", type=float, help="km/h")
+        sp.add_argument("--end", choices=["stop", "loop", "pingpong"])
+
+    sub.add_parser("pause")
+    sub.add_parser("resume")
+    sub.add_parser("stop")
+    sp = sub.add_parser("speed", help="đổi tốc độ tuyến đang chạy (km/h)")
+    sp.add_argument("kmh", type=float)
+    sp = sub.add_parser("joystick", help="bật/tắt joystick nổi")
+    sp.add_argument("state", choices=["on", "off"])
+    sub.add_parser("status", help="xem dịch vụ và vị trí hệ thống đang nhận")
+
+    a = p.parse_args()
+    s = a.serial
+
+    if a.cmd == "setup":
+        cmd_setup(s)
+    elif a.cmd == "status":
+        cmd_status(s)
+    elif a.cmd == "set":
+        ex = extra("alt", a.alt) if a.alt is not None else []
+        nums = a.where if len(a.where) == 2 else a.where[0].replace(",", " ").split() if len(a.where) == 1 else []
+        try:
+            lat, lng = (float(x) for x in nums)
+            call(s, "POINT", ex + extra("lat", lat) + extra("lng", lng))
+        except ValueError:
+            call(s, "POINT", ex + extra("q", " ".join(a.where)))
+    elif a.cmd == "fav":
+        call(s, "POINT", extra("fav", a.name))
+    elif a.cmd == "route":
+        pts = [parse_point(x) for x in a.points]
+        if len(pts) < 2:
+            sys.exit("Cần ít nhất 2 điểm")
+        ex = route_extras(a)
+        if not a.straight:
+            ex += extra("by", "road") + extra("travel", a.travel)
+        send_points(s, pts, ex)
+    elif a.cmd == "gpx":
+        pts = read_gpx(a.file)
+        if len(pts) < 2:
+            sys.exit("File GPX không có đủ điểm")
+        print(f"{len(pts)} điểm từ {a.file}")
+        send_points(s, pts, route_extras(a))
+    elif a.cmd == "speed":
+        call(s, "SPEED", extra("speed", a.kmh))
+    elif a.cmd == "joystick":
+        call(s, "JOYSTICK", extra("state", a.state))
+    else:
+        call(s, a.cmd.upper())
+
+
+if __name__ == "__main__":
+    main()

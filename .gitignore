@@ -1,0 +1,12 @@
+.gradle/
+.kotlin/
+build/
+local.properties
+keystore.properties
+keys/
+*.jks
+.idea/
+*.iml
+
+# Overrides the global *.jar ignore: the wrapper must be committed.
+!gradle/wrapper/gradle-wrapper.jar

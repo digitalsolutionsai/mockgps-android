@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- common -->
+    <string name="common_back">戻る</string>
+    <string name="common_save">保存</string>
+    <string name="common_cancel">キャンセル</string>
+    <string name="common_stop">停止</string>
+    <string name="common_pause">一時停止</string>
+    <string name="common_resume">再開</string>
+    <string name="common_copied">コピーしました</string>
+    <string name="common_copy_command">コマンドをコピー</string>
+    <!-- Status texts shared by the map card and the notification -->
+    <string name="common_arrived">目的地に到着しました</string>
+    <string name="common_route_paused">ルートを一時停止中</string>
+    <string name="common_following_route">ルートを移動中 · %1$d km/h</string>
+    <string name="common_mocking">位置情報をモック中</string>
+
+    <!-- durations: %1$d = minutes, or hours and minutes -->
+    <string name="duration_minutes">%1$d分</string>
+    <string name="duration_hours_minutes">%1$d時間%2$d分</string>
+
+    <!-- notification -->
+    <string name="notif_channel_name">位置情報のモック</string>
+    <string name="notif_preparing">準備中…</string>
+    <string name="notif_moving_joystick">ジョイスティックで移動中</string>
+    <!-- %1$s = coordinates, %2$s = distance covered, %3$s = total distance -->
+    <string name="notif_route_text">%1$s · %2$s / %3$s</string>
+    <string name="notif_action_joystick">ジョイスティック</string>
+    <string name="notif_action_hide_joystick">ジョイスティックを隠す</string>
+
+    <!-- joystick overlay -->
+    <string name="joystick_run">ランニング</string>
+    <string name="joystick_speed">速度</string>
+    <!-- %1$s = speed name, %2$d = speed in km/h -->
+    <string name="joystick_speed_label">%1$s %2$d km/h</string>
+
+    <!-- errors and toasts from the service and the network layer -->
+    <string name="error_no_favorite">「%1$s」というお気に入りはありません</string>
+    <!-- %1$s = query, %2$s = reason -->
+    <string name="error_search_failed">「%1$s」が見つかりませんでした：%2$s</string>
+    <string name="error_detail_no_results">結果なし</string>
+    <string name="error_missing_coordinates">座標がありません</string>
+    <string name="error_no_route">ルートがまだありません</string>
+    <string name="error_route_min_points">ルートには2地点以上が必要です</string>
+    <string name="error_route_too_short">ルートが短すぎます</string>
+    <!-- %1$s = reason -->
+    <string name="error_route_failed">ルートが見つかりませんでした：%1$s</string>
+    <string name="error_detail_route_too_short">ルートが短すぎます</string>
+    <string name="error_detail_route_not_found">ルートが見つかりません</string>
+    <string name="error_detail_server_busy">サーバーが混み合っています。しばらくしてからもう一度お試しください</string>
+    <string name="error_detail_network">ネットワークエラー</string>
+    <string name="error_no_start_position">開始位置がまだありません</string>
+    <string name="error_invalid_coordinates">座標が正しくありません</string>
+    <string name="error_not_mock_app">開発者向けオプションで、MockGPSが「仮の現在地情報アプリ」に選択されていません</string>
+    <string name="error_no_source">設定で位置情報ソースがオンになっていません</string>
+    <string name="error_mock_app_lost">MockGPSは仮の現在地情報アプリではなくなりました</string>
+    <!-- %1$s = reason -->
+    <string name="error_foreground_failed">バックグラウンドサービスを開始できませんでした：%1$s</string>
+    <string name="error_overlay_permission">ジョイスティックには「他のアプリの上に重ねて表示」の権限が必要です</string>
+
+    <!-- map: search bar, menu, status cards -->
+    <string name="map_search_hint">住所、座標、またはGoogle Mapsのリンク</string>
+    <string name="map_search_clear">クリア</string>
+    <string name="map_menu">メニュー</string>
+    <string name="map_menu_about">概要とプライバシー</string>
+    <string name="map_my_location">現在地へ移動</string>
+    <string name="map_result_coordinates">座標</string>
+    <!-- %1$s = error message -->
+    <string name="map_search_error">検索エラー：%1$s</string>
+    <string name="map_no_results">結果が見つかりません</string>
+    <string name="map_running_moving">移動中 · %1$d km/h</string>
+    <string name="map_no_location_permission">位置情報の権限がありません。モックできるのはGPSとネットワークのみです</string>
+    <string name="map_setup_incomplete_title">セットアップが未完了です</string>
+    <string name="map_setup_incomplete_body">タップして残りの手順を確認</string>
+
+    <!-- sheet: panes and point -->
+    <string name="sheet_pane_point">地点</string>
+    <string name="sheet_pane_route">ルート</string>
+    <string name="sheet_pane_fav">お気に入り</string>
+    <string name="sheet_hint_select_point">地図を長押しするか検索して、地点を選択します</string>
+    <string name="sheet_selected_point">選択した地点</string>
+    <string name="sheet_copy_coordinates">座標をコピー</string>
+    <string name="sheet_teleport_here">ここにテレポート</string>
+    <string name="sheet_start_mock">モックを開始</string>
+    <string name="sheet_joystick_title">フローティングジョイスティック</string>
+    <string name="sheet_joystick_desc">モック中に、他のアプリの上でそのまま移動できます</string>
+    <string name="sheet_joystick_permission">MockGPSに他のアプリの上への表示を許可してから、もう一度オンにしてください</string>
+    <string name="sheet_search_hint">検索ボックスには、「10.7769, 106.7009」のような座標、住所、Google Mapsのリンクを入力できます。Google MapsからMockGPSに場所を共有することもできます。</string>
+
+    <!-- route -->
+    <string name="route_gpx_too_few_points">GPXファイルの地点数が足りません</string>
+    <!-- %1$s = error message -->
+    <string name="route_gpx_read_error">GPXを読み込めませんでした：%1$s</string>
+    <string name="route_running">ルート実行中</string>
+    <string name="route_finding">ルートを検索中…</string>
+    <plurals name="route_gpx_points">
+        <item quantity="other">GPXファイル · %1$d地点</item>
+    </plurals>
+    <plurals name="route_point_count">
+        <item quantity="other">%1$d地点</item>
+    </plurals>
+    <string name="route_hint_add_points">地図を長押しして地点を追加</string>
+    <string name="route_need_one_more">あと1地点以上追加してください</string>
+    <string name="route_error_straight">ルートが見つからないため、一時的に直線で結びます</string>
+    <!-- %1$s = distance, %2$s = duration, %3$d = speed in km/h -->
+    <string name="route_estimate">%1$s · %3$d km/hで約%2$s</string>
+    <string name="route_or_open_gpx">またはGPXファイルを開く</string>
+    <!-- %1$s = distance covered, %2$s = total distance -->
+    <string name="route_progress">%1$s / %2$s</string>
+    <!-- %3$s = estimated time left -->
+    <string name="route_progress_eta">%1$s / %2$s · 残り%3$s</string>
+    <string name="route_undo">最後の地点を削除</string>
+    <string name="route_clear">ルートをクリア</string>
+    <string name="route_open_gpx">GPXファイルを開く</string>
+    <string name="route_restart">もう一度実行</string>
+    <string name="route_start">ルートを開始</string>
+    <string name="route_travel_title">移動手段</string>
+    <string name="route_travel_foot">徒歩</string>
+    <string name="route_travel_bike">自転車</string>
+    <string name="route_travel_motorbike">バイク</string>
+    <string name="route_travel_car">車</string>
+    <!-- %1$s = travel mode, %2$d = default speed in km/h -->
+    <string name="route_travel_chip">%1$s · %2$d</string>
+    <string name="route_connect_title">地点の結び方</string>
+    <string name="route_connect_road">道路に沿う</string>
+    <string name="route_connect_straight">直線</string>
+    <string name="route_speed">速度：%1$d km/h</string>
+    <string name="route_end_title">到着時</string>
+    <string name="route_end_stop">終点で停止</string>
+    <string name="route_end_loop">繰り返し</string>
+    <string name="route_end_pingpong">往復</string>
+
+    <!-- favorites -->
+    <string name="fav_hint_empty">地点を選んで☆をタップすると、ここに保存されます</string>
+    <plurals name="fav_saved_count">
+        <item quantity="other">保存した場所 %1$d件 · 上にドラッグしてすべて表示</item>
+    </plurals>
+    <string name="fav_save">お気に入りに保存</string>
+    <string name="fav_save_title">お気に入りを保存</string>
+    <string name="fav_name_label">名前</string>
+    <!-- %1$s = favorite name -->
+    <string name="fav_saved">「%1$s」を保存しました</string>
+    <string name="fav_deleted">「%1$s」を削除しました</string>
+    <string name="fav_undo">元に戻す</string>
+    <string name="fav_start_now">今すぐモック</string>
+    <string name="fav_delete">削除</string>
+
+    <!-- setup -->
+    <string name="setup_title">セットアップ</string>
+    <string name="setup_intro">Androidでは、開発者向けオプションで選択したアプリだけが位置情報をモックできます。この操作は一度だけで済みます。</string>
+    <!-- %1$s = step title -->
+    <string name="setup_step_optional">%1$s（任意）</string>
+    <string name="setup_done">完了</string>
+    <string name="setup_step1_title">開発者向けオプションをオンにする</string>
+    <string name="setup_step1_body">設定 → 端末情報 → ソフトウェア情報 → 「ビルド番号」を7回タップします。</string>
+    <string name="setup_step1_action">端末情報を開く</string>
+    <string name="setup_step2_title">MockGPSを仮の現在地情報アプリに選択</string>
+    <string name="setup_step2_body">開発者向けオプションで「仮の現在地情報アプリを選択」を探し、MockGPSを選びます。</string>
+    <string name="setup_step2_action">開発者向けオプションを開く</string>
+    <string name="setup_step3_title">位置情報と通知を許可</string>
+    <string name="setup_step3_body">位置情報を許可すると、多くのアプリが使うFusedソースもモックできます。通知には、状態と停止ボタンが表示されます。</string>
+    <string name="setup_step3_action">権限を付与</string>
+    <string name="setup_step3_secondary">アプリの設定</string>
+    <string name="setup_step4_title">他のアプリの上に重ねて表示</string>
+    <string name="setup_step4_body">他のアプリを開いたままフローティングジョイスティックで移動する場合にのみ必要です。</string>
+    <string name="setup_step4_action">設定を開く</string>
+    <string name="setup_step5_title">バッテリーを制限しない</string>
+    <string name="setup_step5_body">画面を長時間オフにしてもシステムにモックを停止されないよう、Samsung、Xiaomi、OPPOでの設定をおすすめします。</string>
+    <string name="setup_step5_action">バッテリー設定を開く</string>
+    <string name="setup_quick_title">adbでクイックセットアップ</string>
+    <string name="setup_quick_body">デバッグ用ケーブルで接続している場合は、手順2と3を省略できます：</string>
+    <string name="setup_start">始める</string>
+    <string name="setup_finish_steps">手順2と3を完了すると続行できます</string>
+    <string name="setup_later">後で</string>
+
+    <!-- settings -->
+    <string name="settings_title">設定</string>
+    <string name="settings_running_note">信号と位置情報ソースの変更は、次回モックを開始したときに反映されます。</string>
+    <string name="settings_section_signal">モック信号</string>
+    <string name="settings_accuracy">精度：%1$d m</string>
+    <string name="settings_altitude">高度：%1$d m</string>
+    <string name="settings_jitter_title">自然なゆらぎ</string>
+    <string name="settings_jitter_desc">本物のGPS受信機のように、数メートルの誤差を加えます</string>
+    <string name="settings_interval">更新頻度</string>
+    <string name="settings_interval_500ms">0.5秒</string>
+    <string name="settings_interval_1s">1秒</string>
+    <string name="settings_interval_2s">2秒</string>
+    <string name="settings_interval_5s">5秒</string>
+    <string name="settings_section_sources">モックする位置情報ソース</string>
+    <string name="settings_source_network">ネットワーク</string>
+    <string name="settings_source_fused_desc">AndroidのFusedソースとGoogle Play services（FusedLocationProviderClient）</string>
+    <string name="settings_section_joystick">ジョイスティック</string>
+    <string name="settings_joystick_speed">デフォルトの速度</string>
+    <string name="settings_speed_kmh">%1$d km/h</string>
+    <string name="settings_section_language">言語</string>
+    <string name="settings_app_language">アプリの言語</string>
+    <string name="settings_section_map">地図</string>
+    <string name="settings_theme_auto">システムに従う</string>
+    <string name="settings_theme_light">ライト</string>
+    <string name="settings_theme_dark">ダーク</string>
+    <string name="settings_section_routing">ルート検索サーバー（OSRM）</string>
+    <string name="settings_routing_desc">既定では公開のFOSSGISサーバーを使用します（1秒あたり最大1リクエスト）。独自のOSRMサーバーを指定することもできます。{profile}はfoot、bike、carに置き換えられます。</string>
+    <string name="settings_routing_reset">既定に戻す</string>
+
+    <!-- adb screen -->
+    <string name="adb_title">adbで操作</string>
+    <string name="adb_intro">すべての操作をパソコンから実行でき、自動テストに便利です。このサービスにはandroid.permission.DUMP権限が必要なため、操作できるのはこのアプリとadb shellだけで、他のアプリからは操作できません。</string>
+    <string name="adb_section_point">1つの地点にとどまる</string>
+    <string name="adb_alt_hint" tools:ignore="TypographyDashes">--es alt 25 を追加すると、高度（m）を設定できます。</string>
+    <string name="adb_section_query">住所またはGoogle Mapsのリンクで指定</string>
+    <string name="adb_section_fav">保存したお気に入り</string>
+    <string name="adb_section_route">ルートをたどる</string>
+    <string name="adb_route_params">by: road（道路に沿う）。空欄の場合は地点を直線で結ぶ · travel: foot, bike, motorbike, car · end: stop, loop, pingpong · speed: km/h。</string>
+    <string name="adb_section_controls">操作</string>
+    <string name="adb_section_check">システムが受け取っている位置情報を確認</string>
+
+    <!-- about screen -->
+    <string name="about_title">アプリ情報</string>
+    <!-- %1$s = version name -->
+    <string name="about_app_version">MockGPS %1$s</string>
+    <string name="about_description">位置情報を使う機能をテストするための、開発者とテスター向けの位置情報モックツールです。開発元：DSAI（dsai.vn）。</string>
+    <string name="about_section_notes">使用上の注意</string>
+    <string name="about_notes">モックした位置情報は、Androidによって常にモックとして識別されます（Location.isMock）。そのため、これを確認するアプリには検知されます。ご自身のアプリのテストにのみ使用してください。不正行為や、他のサービスの利用規約に違反する目的では使用しないでください。</string>
+    <string name="about_section_privacy">プライバシー</string>
+    <string name="about_privacy">広告、分析、アカウント、独自サーバーはありません。お気に入りと設定は端末内にのみ保存されます。検索、ルート検索、地図の表示を行うと、検索テキストと関連する座標が、以下のサービスに直接送信されます。</string>
+    <string name="about_privacy_policy">プライバシーポリシー</string>
+    <string name="about_section_third_party">サードパーティのサービスとデータ</string>
+    <string name="about_third_party">• 地図：OpenFreeMap、データ © OpenMapTiles © OpenStreetMap contributors (ODbL)\n• 住所検索：Android Geocoder（Google）、Photon（komoot）、Nominatim（OpenStreetMap）\n• ルート検索：routing.openstreetmap.de の OSRM（FOSSGIS）\n• ライブラリ：MapLibre Native (BSD-2-Clause)、AndroidX、Jetpack Compose、Google Play services Location</string>
+    <string name="about_osm_copyright">OpenStreetMapの著作権</string>
+</resources>

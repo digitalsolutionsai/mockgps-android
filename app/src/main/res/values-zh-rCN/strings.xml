@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- common -->
+    <string name="common_back">返回</string>
+    <string name="common_save">保存</string>
+    <string name="common_cancel">取消</string>
+    <string name="common_stop">停止</string>
+    <string name="common_pause">暂停</string>
+    <string name="common_resume">继续</string>
+    <string name="common_copied">已复制</string>
+    <string name="common_copy_command">复制命令</string>
+    <!-- Status texts shared by the map card and the notification -->
+    <string name="common_arrived">已到达目的地</string>
+    <string name="common_route_paused">路线已暂停</string>
+    <string name="common_following_route">正在沿路线移动 · %1$d km/h</string>
+    <string name="common_mocking">正在模拟位置</string>
+
+    <!-- durations: %1$d = minutes, or hours and minutes -->
+    <string name="duration_minutes">%1$d 分钟</string>
+    <string name="duration_hours_minutes">%1$d 小时 %2$d 分钟</string>
+
+    <!-- notification -->
+    <string name="notif_channel_name">位置模拟</string>
+    <string name="notif_preparing">正在准备…</string>
+    <string name="notif_moving_joystick">正在通过摇杆移动</string>
+    <!-- %1$s = coordinates, %2$s = distance covered, %3$s = total distance -->
+    <string name="notif_route_text">%1$s · %2$s / %3$s</string>
+    <string name="notif_action_joystick">摇杆</string>
+    <string name="notif_action_hide_joystick">隐藏摇杆</string>
+
+    <!-- joystick overlay -->
+    <string name="joystick_run">跑步</string>
+    <string name="joystick_speed">速度</string>
+    <!-- %1$s = speed name, %2$d = speed in km/h -->
+    <string name="joystick_speed_label">%1$s %2$d km/h</string>
+
+    <!-- errors and toasts from the service and the network layer -->
+    <string name="error_no_favorite">没有名为“%1$s”的收藏</string>
+    <!-- %1$s = query, %2$s = reason -->
+    <string name="error_search_failed">找不到“%1$s”：%2$s</string>
+    <string name="error_detail_no_results">无结果</string>
+    <string name="error_missing_coordinates">缺少坐标</string>
+    <string name="error_no_route">尚无路线</string>
+    <string name="error_route_min_points">路线至少需要 2 个点</string>
+    <string name="error_route_too_short">路线太短</string>
+    <!-- %1$s = reason -->
+    <string name="error_route_failed">无法规划路线：%1$s</string>
+    <string name="error_detail_route_too_short">路线太短</string>
+    <string name="error_detail_route_not_found">找不到路线</string>
+    <string name="error_detail_server_busy">服务器负载过高，请稍后重试</string>
+    <string name="error_detail_network">网络错误</string>
+    <string name="error_no_start_position">还没有可作为起点的位置</string>
+    <string name="error_invalid_coordinates">坐标无效</string>
+    <string name="error_not_mock_app">未在开发者选项中将 MockGPS 选为“模拟位置信息应用”</string>
+    <string name="error_no_source">尚未在设置中开启任何位置来源</string>
+    <string name="error_mock_app_lost">MockGPS 已不再是模拟位置信息应用</string>
+    <!-- %1$s = reason -->
+    <string name="error_foreground_failed">无法启动后台服务：%1$s</string>
+    <string name="error_overlay_permission">摇杆需要“显示在其他应用的上层”权限</string>
+
+    <!-- map: search bar, menu, status cards -->
+    <string name="map_search_hint">地址、坐标或 Google Maps 链接</string>
+    <string name="map_search_clear">清除</string>
+    <string name="map_menu">菜单</string>
+    <string name="map_menu_about">关于和隐私</string>
+    <string name="map_my_location">回到当前位置</string>
+    <string name="map_result_coordinates">坐标</string>
+    <!-- %1$s = error message -->
+    <string name="map_search_error">搜索出错：%1$s</string>
+    <string name="map_no_results">未找到结果</string>
+    <string name="map_running_moving">移动中 · %1$d km/h</string>
+    <string name="map_no_location_permission">缺少位置权限：只能模拟 GPS 和网络</string>
+    <string name="map_setup_incomplete_title">设置尚未完成</string>
+    <string name="map_setup_incomplete_body">点按查看剩余步骤</string>
+
+    <!-- sheet: panes and point -->
+    <string name="sheet_pane_point">地点</string>
+    <string name="sheet_pane_route">路线</string>
+    <string name="sheet_pane_fav">收藏</string>
+    <string name="sheet_hint_select_point">长按地图或搜索来选择地点</string>
+    <string name="sheet_selected_point">已选地点</string>
+    <string name="sheet_copy_coordinates">复制坐标</string>
+    <string name="sheet_teleport_here">传送到这里</string>
+    <string name="sheet_start_mock">开始模拟</string>
+    <string name="sheet_joystick_title">悬浮摇杆</string>
+    <string name="sheet_joystick_desc">模拟时可直接在其他应用上方移动</string>
+    <string name="sheet_joystick_permission">请允许 MockGPS 显示在其他应用的上层，然后重新开启</string>
+    <string name="sheet_search_hint">搜索框支持输入“10.7769, 106.7009”这样的坐标、地址或 Google Maps 链接。你也可以把 Google Maps 中的地点分享到 MockGPS。</string>
+
+    <!-- route -->
+    <string name="route_gpx_too_few_points">GPX 文件中的点不够</string>
+    <!-- %1$s = error message -->
+    <string name="route_gpx_read_error">无法读取 GPX：%1$s</string>
+    <string name="route_running">路线运行中</string>
+    <string name="route_finding">正在规划路线…</string>
+    <plurals name="route_gpx_points">
+        <item quantity="other">GPX 文件 · %1$d 个点</item>
+    </plurals>
+    <plurals name="route_point_count">
+        <item quantity="other">%1$d 个点</item>
+    </plurals>
+    <string name="route_hint_add_points">长按地图添加点</string>
+    <string name="route_need_one_more">请至少再添加一个点</string>
+    <string name="route_error_straight">找不到路线，暂时使用直线连接</string>
+    <!-- %1$s = distance, %2$s = duration, %3$d = speed in km/h -->
+    <string name="route_estimate">%1$s · 以 %3$d km/h 行进约需 %2$s</string>
+    <string name="route_or_open_gpx">或打开 GPX 文件</string>
+    <!-- %1$s = distance covered, %2$s = total distance -->
+    <string name="route_progress">%1$s / %2$s</string>
+    <!-- %3$s = estimated time left -->
+    <string name="route_progress_eta">%1$s / %2$s · 剩余 %3$s</string>
+    <string name="route_undo">删除最后一个点</string>
+    <string name="route_clear">清除路线</string>
+    <string name="route_open_gpx">打开 GPX 文件</string>
+    <string name="route_restart">重新运行</string>
+    <string name="route_start">开始路线</string>
+    <string name="route_travel_title">出行方式</string>
+    <string name="route_travel_foot">步行</string>
+    <string name="route_travel_bike">自行车</string>
+    <string name="route_travel_motorbike">摩托车</string>
+    <string name="route_travel_car">汽车</string>
+    <!-- %1$s = travel mode, %2$d = default speed in km/h -->
+    <string name="route_travel_chip">%1$s · %2$d</string>
+    <string name="route_connect_title">连接方式</string>
+    <string name="route_connect_road">沿道路</string>
+    <string name="route_connect_straight">直线</string>
+    <string name="route_speed">速度：%1$d km/h</string>
+    <string name="route_end_title">到达终点后</string>
+    <string name="route_end_stop">在终点停止</string>
+    <string name="route_end_loop">循环</string>
+    <string name="route_end_pingpong">往返</string>
+
+    <!-- favorites -->
+    <string name="fav_hint_empty">选择一个地点，然后点按 ☆ 即可保存到这里</string>
+    <plurals name="fav_saved_count">
+        <item quantity="other">已保存 %1$d 个地点 · 向上拖动查看全部</item>
+    </plurals>
+    <string name="fav_save">保存到收藏</string>
+    <string name="fav_save_title">保存收藏</string>
+    <string name="fav_name_label">名称</string>
+    <!-- %1$s = favorite name -->
+    <string name="fav_saved">已保存“%1$s”</string>
+    <string name="fav_deleted">已删除“%1$s”</string>
+    <string name="fav_undo">撤销</string>
+    <string name="fav_start_now">立即模拟</string>
+    <string name="fav_delete">删除</string>
+
+    <!-- setup -->
+    <string name="setup_title">初始设置</string>
+    <string name="setup_intro">Android 只允许你在开发者选项中选定的应用模拟位置，此操作只需进行一次。</string>
+    <!-- %1$s = step title -->
+    <string name="setup_step_optional">%1$s（可选）</string>
+    <string name="setup_done">已完成</string>
+    <string name="setup_step1_title">开启开发者选项</string>
+    <string name="setup_step1_body">设置 → 关于手机 → 软件信息 → 连续点按“版本号”7 次。</string>
+    <string name="setup_step1_action">打开“关于手机”</string>
+    <string name="setup_step2_title">将 MockGPS 选为模拟位置信息应用</string>
+    <string name="setup_step2_body">在开发者选项中找到“选择模拟位置信息应用”，然后选择 MockGPS。</string>
+    <string name="setup_step2_action">打开开发者选项</string>
+    <string name="setup_step3_title">允许位置信息和通知</string>
+    <string name="setup_step3_body">授予位置权限后，MockGPS 还能模拟大多数应用使用的 Fused 来源。通知用于显示状态和“停止”按钮。</string>
+    <string name="setup_step3_action">授予权限</string>
+    <string name="setup_step3_secondary">应用设置</string>
+    <string name="setup_step4_title">显示在其他应用的上层</string>
+    <string name="setup_step4_body">仅当你要在打开其他应用时使用悬浮摇杆移动，才需要此项。</string>
+    <string name="setup_step4_action">打开设置</string>
+    <string name="setup_step5_title">电池无限制</string>
+    <string name="setup_step5_body">建议在三星、小米和 OPPO 设备上开启，以免系统在屏幕长时间关闭后停止模拟。</string>
+    <string name="setup_step5_action">打开电池设置</string>
+    <string name="setup_quick_title">使用 adb 快速设置</string>
+    <string name="setup_quick_body">手机通过调试线连接电脑时，可以跳过第 2 步和第 3 步：</string>
+    <string name="setup_start">开始使用</string>
+    <string name="setup_finish_steps">完成第 2 步和第 3 步后才能继续</string>
+    <string name="setup_later">稍后</string>
+
+    <!-- settings -->
+    <string name="settings_title">设置</string>
+    <string name="settings_running_note">信号和位置来源的更改将在下次开始模拟时生效。</string>
+    <string name="settings_section_signal">模拟信号</string>
+    <string name="settings_accuracy">精度：%1$d m</string>
+    <string name="settings_altitude">海拔：%1$d m</string>
+    <string name="settings_jitter_title">自然抖动</string>
+    <string name="settings_jitter_desc">像真实的 GPS 接收器一样，加入几米的误差</string>
+    <string name="settings_interval">更新频率</string>
+    <string name="settings_interval_500ms">0.5 秒</string>
+    <string name="settings_interval_1s">1 秒</string>
+    <string name="settings_interval_2s">2 秒</string>
+    <string name="settings_interval_5s">5 秒</string>
+    <string name="settings_section_sources">模拟的位置来源</string>
+    <string name="settings_source_network">网络</string>
+    <string name="settings_source_fused_desc">Android 的 Fused 来源和 Google Play services（FusedLocationProviderClient）</string>
+    <string name="settings_section_joystick">摇杆</string>
+    <string name="settings_joystick_speed">默认速度</string>
+    <string name="settings_speed_kmh">%1$d km/h</string>
+    <string name="settings_section_language">语言</string>
+    <string name="settings_app_language">应用语言</string>
+    <string name="settings_section_map">地图</string>
+    <string name="settings_theme_auto">跟随系统</string>
+    <string name="settings_theme_light">浅色</string>
+    <string name="settings_theme_dark">深色</string>
+    <string name="settings_section_routing">路线规划服务器（OSRM）</string>
+    <string name="settings_routing_desc">默认使用公共的 FOSSGIS 服务器（每秒最多 1 次请求）。你也可以改用自己的 OSRM 服务器；{profile} 会被替换为 foot、bike 或 car。</string>
+    <string name="settings_routing_reset">恢复默认</string>
+
+    <!-- adb screen -->
+    <string name="adb_title">使用 adb 控制</string>
+    <string name="adb_intro">所有操作都可以从电脑触发，非常适合自动化测试。该服务要求 android.permission.DUMP 权限，因此只有本应用和 adb shell 可以控制，其他应用无法控制。</string>
+    <string name="adb_section_point">停留在某一点</string>
+    <string name="adb_alt_hint" tools:ignore="TypographyDashes">添加 --es alt 25 可设置海拔（m）。</string>
+    <string name="adb_section_query">按地址或 Google Maps 链接</string>
+    <string name="adb_section_fav">已保存的收藏</string>
+    <string name="adb_section_route">沿路线移动</string>
+    <string name="adb_route_params">by: road（沿道路），留空则用直线连接各点 · travel: foot, bike, motorbike, car · end: stop, loop, pingpong · speed: km/h。</string>
+    <string name="adb_section_controls">控制</string>
+    <string name="adb_section_check">检查系统正在接收的位置</string>
+
+    <!-- about screen -->
+    <string name="about_title">关于</string>
+    <!-- %1$s = version name -->
+    <string name="about_app_version">MockGPS %1$s</string>
+    <string name="about_description">面向开发者和测试人员的位置模拟工具，用于测试基于位置的功能。由 DSAI（dsai.vn）开发。</string>
+    <string name="about_section_notes">使用说明</string>
+    <string name="about_notes">模拟的位置始终会被 Android 标记为模拟位置（Location.isMock），因此会检查该标记的应用能够发现。请仅用于测试你自己的应用，不要用于作弊或违反其他服务的条款。</string>
+    <string name="about_section_privacy">隐私</string>
+    <string name="about_privacy">无广告、无统计分析、无账号，也没有我们自己的服务器。收藏和设置仅保存在你的设备上。当你搜索、规划路线或查看地图时，搜索文字和相关坐标会直接发送到下列服务。</string>
+    <string name="about_privacy_policy">隐私政策</string>
+    <string name="about_section_third_party">第三方服务和数据</string>
+    <string name="about_third_party">• 地图：OpenFreeMap，数据 © OpenMapTiles © OpenStreetMap contributors (ODbL)\n• 地址搜索：Android Geocoder（Google）、Photon（komoot）、Nominatim（OpenStreetMap）\n• 路线规划：routing.openstreetmap.de 上的 OSRM（FOSSGIS）\n• 库：MapLibre Native (BSD-2-Clause)、AndroidX、Jetpack Compose、Google Play services Location</string>
+    <string name="about_osm_copyright">OpenStreetMap 版权</string>
+</resources>

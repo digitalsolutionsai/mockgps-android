@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- common -->
+    <string name="common_back">Zurück</string>
+    <string name="common_save">Speichern</string>
+    <string name="common_cancel">Abbrechen</string>
+    <string name="common_stop">Stopp</string>
+    <string name="common_pause">Pausieren</string>
+    <string name="common_resume">Fortsetzen</string>
+    <string name="common_copied">Kopiert</string>
+    <string name="common_copy_command">Befehl kopieren</string>
+    <!-- Status texts shared by the map card and the notification -->
+    <string name="common_arrived">Ziel erreicht</string>
+    <string name="common_route_paused">Route pausiert</string>
+    <string name="common_following_route">Folgt der Route · %1$d km/h</string>
+    <string name="common_mocking">Standort wird simuliert</string>
+
+    <!-- durations: %1$d = minutes, or hours and minutes -->
+    <string name="duration_minutes">%1$d Min.</string>
+    <string name="duration_hours_minutes">%1$d Std. %2$d Min.</string>
+
+    <!-- notification -->
+    <string name="notif_channel_name">Standortsimulation</string>
+    <string name="notif_preparing">Wird vorbereitet…</string>
+    <string name="notif_moving_joystick">Bewegung per Joystick</string>
+    <!-- %1$s = coordinates, %2$s = distance covered, %3$s = total distance -->
+    <string name="notif_route_text">%1$s · %2$s / %3$s</string>
+    <string name="notif_action_joystick">Joystick</string>
+    <string name="notif_action_hide_joystick">Joystick ausblenden</string>
+
+    <!-- joystick overlay -->
+    <string name="joystick_run">Rennen</string>
+    <string name="joystick_speed">Geschwindigkeit</string>
+    <!-- %1$s = speed name, %2$d = speed in km/h -->
+    <string name="joystick_speed_label">%1$s %2$d km/h</string>
+
+    <!-- errors and toasts from the service and the network layer -->
+    <string name="error_no_favorite">Kein Favorit mit dem Namen \"%1$s\"</string>
+    <!-- %1$s = query, %2$s = reason -->
+    <string name="error_search_failed">\"%1$s\" wurde nicht gefunden: %2$s</string>
+    <string name="error_detail_no_results">keine Ergebnisse</string>
+    <string name="error_missing_coordinates">Koordinaten fehlen</string>
+    <string name="error_no_route">Noch keine Route</string>
+    <string name="error_route_min_points">Eine Route braucht mindestens 2 Punkte</string>
+    <string name="error_route_too_short">Die Route ist zu kurz</string>
+    <!-- %1$s = reason -->
+    <string name="error_route_failed">Route konnte nicht gefunden werden: %1$s</string>
+    <string name="error_detail_route_too_short">die Route ist zu kurz</string>
+    <string name="error_detail_route_not_found">keine Route gefunden</string>
+    <string name="error_detail_server_busy">der Server ist überlastet, versuche es später erneut</string>
+    <string name="error_detail_network">Netzwerkfehler</string>
+    <string name="error_no_start_position">Noch keine Startposition</string>
+    <string name="error_invalid_coordinates">Ungültige Koordinaten</string>
+    <string name="error_not_mock_app">MockGPS ist in den Entwickleroptionen nicht als \"App für simulierte Standorte\" ausgewählt</string>
+    <string name="error_no_source">In den Einstellungen ist keine Standortquelle aktiviert</string>
+    <string name="error_mock_app_lost">MockGPS ist nicht mehr die App für simulierte Standorte</string>
+    <!-- %1$s = reason -->
+    <string name="error_foreground_failed">Hintergrunddienst konnte nicht gestartet werden: %1$s</string>
+    <string name="error_overlay_permission">Der Joystick benötigt die Berechtigung \"Über anderen Apps einblenden\"</string>
+
+    <!-- map: search bar, menu, status cards -->
+    <string name="map_search_hint">Adresse, Koordinaten oder Google-Maps-Link</string>
+    <string name="map_search_clear">Löschen</string>
+    <string name="map_menu">Menü</string>
+    <string name="map_menu_about">Info &amp; Datenschutz</string>
+    <string name="map_my_location">Zum aktuellen Standort</string>
+    <string name="map_result_coordinates">Koordinaten</string>
+    <!-- %1$s = error message -->
+    <string name="map_search_error">Suchfehler: %1$s</string>
+    <string name="map_no_results">Keine Ergebnisse gefunden</string>
+    <string name="map_running_moving">In Bewegung · %1$d km/h</string>
+    <string name="map_no_location_permission">Standortberechtigung fehlt: Nur GPS und Netzwerk können simuliert werden</string>
+    <string name="map_setup_incomplete_title">Einrichtung unvollständig</string>
+    <string name="map_setup_incomplete_body">Tippen, um die restlichen Schritte zu sehen</string>
+
+    <!-- sheet: panes and point -->
+    <string name="sheet_pane_point">Punkt</string>
+    <string name="sheet_pane_route">Route</string>
+    <string name="sheet_pane_fav">Favoriten</string>
+    <string name="sheet_hint_select_point">Karte lange drücken oder suchen, um einen Punkt zu wählen</string>
+    <string name="sheet_selected_point">Ausgewählter Punkt</string>
+    <string name="sheet_copy_coordinates">Koordinaten kopieren</string>
+    <string name="sheet_teleport_here">Hierher teleportieren</string>
+    <string name="sheet_start_mock">Simulation starten</string>
+    <string name="sheet_joystick_title">Schwebender Joystick</string>
+    <string name="sheet_joystick_desc">Während der Simulation direkt über anderen Apps steuern</string>
+    <string name="sheet_joystick_permission">Erlaube MockGPS das Einblenden über anderen Apps und schalte dies dann erneut ein</string>
+    <string name="sheet_search_hint">Das Suchfeld akzeptiert Koordinaten wie \"10.7769, 106.7009\", eine Adresse oder einen Google-Maps-Link. Du kannst auch einen Ort aus Google Maps mit MockGPS teilen.</string>
+
+    <!-- route -->
+    <string name="route_gpx_too_few_points">Die GPX-Datei enthält nicht genug Punkte</string>
+    <!-- %1$s = error message -->
+    <string name="route_gpx_read_error">GPX konnte nicht gelesen werden: %1$s</string>
+    <string name="route_running">Route läuft</string>
+    <string name="route_finding">Route wird gesucht…</string>
+    <plurals name="route_gpx_points">
+        <item quantity="one">GPX-Datei · %1$d Punkt</item>
+        <item quantity="other">GPX-Datei · %1$d Punkte</item>
+    </plurals>
+    <plurals name="route_point_count">
+        <item quantity="one">%1$d Punkt</item>
+        <item quantity="other">%1$d Punkte</item>
+    </plurals>
+    <string name="route_hint_add_points">Karte lange drücken, um Punkte hinzuzufügen</string>
+    <string name="route_need_one_more">Füge mindestens einen weiteren Punkt hinzu</string>
+    <string name="route_error_straight">Route nicht gefunden, vorerst gerade Linien</string>
+    <!-- %1$s = distance, %2$s = duration, %3$d = speed in km/h -->
+    <string name="route_estimate">%1$s · etwa %2$s bei %3$d km/h</string>
+    <string name="route_or_open_gpx">oder eine GPX-Datei öffnen</string>
+    <!-- %1$s = distance covered, %2$s = total distance -->
+    <string name="route_progress">%1$s / %2$s</string>
+    <!-- %3$s = estimated time left -->
+    <string name="route_progress_eta">%1$s / %2$s · noch %3$s</string>
+    <string name="route_undo">Letzten Punkt entfernen</string>
+    <string name="route_clear">Route löschen</string>
+    <string name="route_open_gpx">GPX-Datei öffnen</string>
+    <string name="route_restart">Erneut starten</string>
+    <string name="route_start">Route starten</string>
+    <string name="route_travel_title">Fortbewegungsart</string>
+    <string name="route_travel_foot">Zu Fuß</string>
+    <string name="route_travel_bike">Fahrrad</string>
+    <string name="route_travel_motorbike">Motorrad</string>
+    <string name="route_travel_car">Auto</string>
+    <!-- %1$s = travel mode, %2$d = default speed in km/h -->
+    <string name="route_travel_chip">%1$s · %2$d</string>
+    <string name="route_connect_title">Punkte verbinden</string>
+    <string name="route_connect_road">Entlang von Straßen</string>
+    <string name="route_connect_straight">Gerade Linie</string>
+    <string name="route_speed">Geschwindigkeit: %1$d km/h</string>
+    <string name="route_end_title">Am Ziel</string>
+    <string name="route_end_stop">Am Ende stoppen</string>
+    <string name="route_end_loop">Wiederholen</string>
+    <string name="route_end_pingpong">Hin und zurück</string>
+
+    <!-- favorites -->
+    <string name="fav_hint_empty">Wähle einen Punkt und tippe auf ☆, um ihn hier zu speichern</string>
+    <plurals name="fav_saved_count">
+        <item quantity="one">%1$d gespeicherter Ort · nach oben ziehen, um alle zu sehen</item>
+        <item quantity="other">%1$d gespeicherte Orte · nach oben ziehen, um alle zu sehen</item>
+    </plurals>
+    <string name="fav_save">Als Favorit speichern</string>
+    <string name="fav_save_title">Favorit speichern</string>
+    <string name="fav_name_label">Name</string>
+    <!-- %1$s = favorite name -->
+    <string name="fav_saved">\"%1$s\" gespeichert</string>
+    <string name="fav_deleted">\"%1$s\" gelöscht</string>
+    <string name="fav_undo">Rückgängig</string>
+    <string name="fav_start_now">Jetzt simulieren</string>
+    <string name="fav_delete">Löschen</string>
+
+    <!-- setup -->
+    <string name="setup_title">Einrichtung</string>
+    <string name="setup_intro">Android erlaubt einer App erst dann, den Standort zu simulieren, wenn du sie in den Entwickleroptionen auswählst. Das musst du nur einmal tun.</string>
+    <!-- %1$s = step title -->
+    <string name="setup_step_optional">%1$s (optional)</string>
+    <string name="setup_done">Fertig</string>
+    <string name="setup_step1_title">Entwickleroptionen aktivieren</string>
+    <string name="setup_step1_body">Einstellungen → Über das Telefon → Softwareinformationen → 7-mal auf \"Build-Nummer\" tippen.</string>
+    <string name="setup_step1_action">Über das Telefon öffnen</string>
+    <string name="setup_step2_title">MockGPS als App für simulierte Standorte auswählen</string>
+    <string name="setup_step2_body">Suche in den Entwickleroptionen nach \"App für simulierte Standorte auswählen\" und wähle MockGPS aus.</string>
+    <string name="setup_step2_action">Entwickleroptionen öffnen</string>
+    <string name="setup_step3_title">Standort und Benachrichtigungen erlauben</string>
+    <string name="setup_step3_body">Mit der Standortberechtigung kann MockGPS auch die Fused-Quelle simulieren, die die meisten Apps nutzen. Benachrichtigungen zeigen den Status und die Schaltfläche „Stopp“.</string>
+    <string name="setup_step3_action">Berechtigungen erteilen</string>
+    <string name="setup_step3_secondary">App-Einstellungen</string>
+    <string name="setup_step4_title">Über anderen Apps einblenden</string>
+    <string name="setup_step4_body">Nur nötig, wenn du den schwebenden Joystick nutzt, um dich zu bewegen, während eine andere App geöffnet ist.</string>
+    <string name="setup_step4_action">Einstellungen öffnen</string>
+    <string name="setup_step5_title">Akku uneingeschränkt</string>
+    <string name="setup_step5_body">Empfohlen bei Samsung, Xiaomi und Oppo, damit das System die Simulation nicht beendet, wenn der Bildschirm lange aus ist.</string>
+    <string name="setup_step5_action">Akkueinstellungen öffnen</string>
+    <string name="setup_quick_title">Schnelleinrichtung mit adb</string>
+    <string name="setup_quick_body">Überspringe Schritt 2 und 3, wenn das Handy per Debug-Kabel verbunden ist:</string>
+    <string name="setup_start">Loslegen</string>
+    <string name="setup_finish_steps">Schließe Schritt 2 und 3 ab, um fortzufahren</string>
+    <string name="setup_later">Später</string>
+
+    <!-- settings -->
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_running_note">Änderungen am Signal und an den Standortquellen gelten ab dem nächsten Start der Simulation.</string>
+    <string name="settings_section_signal">Simuliertes Signal</string>
+    <string name="settings_accuracy">Genauigkeit: %1$d m</string>
+    <string name="settings_altitude">Höhe: %1$d m</string>
+    <string name="settings_jitter_title">Natürliche Abweichung</string>
+    <string name="settings_jitter_desc">Fügt einen Fehler von wenigen Metern hinzu, wie ein echter GPS-Empfänger</string>
+    <string name="settings_interval">Aktualisierungsrate</string>
+    <string name="settings_interval_500ms">0,5 s</string>
+    <string name="settings_interval_1s">1 s</string>
+    <string name="settings_interval_2s">2 s</string>
+    <string name="settings_interval_5s">5 s</string>
+    <string name="settings_section_sources">Simulierte Standortquellen</string>
+    <string name="settings_source_network">Netzwerk</string>
+    <string name="settings_source_fused_desc">Fused-Quelle von Android und Google Play services (FusedLocationProviderClient)</string>
+    <string name="settings_section_joystick">Joystick</string>
+    <string name="settings_joystick_speed">Standardgeschwindigkeit</string>
+    <string name="settings_speed_kmh">%1$d km/h</string>
+    <string name="settings_section_language">Sprache</string>
+    <string name="settings_app_language">App-Sprache</string>
+    <string name="settings_section_map">Karte</string>
+    <string name="settings_theme_auto">Wie System</string>
+    <string name="settings_theme_light">Hell</string>
+    <string name="settings_theme_dark">Dunkel</string>
+    <string name="settings_section_routing">Routing-Server (OSRM)</string>
+    <string name="settings_routing_desc">Verwendet standardmäßig den öffentlichen FOSSGIS-Server (höchstens 1 Anfrage pro Sekunde). Du kannst auf deinen eigenen OSRM-Server verweisen; {profile} wird durch foot, bike oder car ersetzt.</string>
+    <string name="settings_routing_reset">Standard wiederherstellen</string>
+
+    <!-- adb screen -->
+    <string name="adb_title">Steuerung per adb</string>
+    <string name="adb_intro">Alles lässt sich von einem Computer aus auslösen, praktisch für automatisierte Tests. Der Dienst erfordert die Berechtigung android.permission.DUMP, daher können nur diese App und die adb shell ihn steuern; andere Apps nicht.</string>
+    <string name="adb_section_point">An einem Punkt bleiben</string>
+    <string name="adb_alt_hint" tools:ignore="TypographyDashes">Mit --es alt 25 legst du die Höhe (m) fest.</string>
+    <string name="adb_section_query">Per Adresse oder Google-Maps-Link</string>
+    <string name="adb_section_fav">Gespeicherter Favorit</string>
+    <string name="adb_section_route">Einer Route folgen</string>
+    <string name="adb_route_params">by: road (Straßen folgen) oder leer lassen, um die Punkte mit einer geraden Linie zu verbinden · travel: foot, bike, motorbike, car · end: stop, loop, pingpong · speed: km/h.</string>
+    <string name="adb_section_controls">Steuerung</string>
+    <string name="adb_section_check">Standort prüfen, den das System empfängt</string>
+
+    <!-- about screen -->
+    <string name="about_title">Info</string>
+    <!-- %1$s = version name -->
+    <string name="about_app_version">MockGPS %1$s</string>
+    <string name="about_description">Ein Tool zur Standortsimulation für Entwickler und Tester, um standortbasierte Funktionen zu testen. Entwickelt von DSAI (dsai.vn).</string>
+    <string name="about_section_notes">Hinweise zur Nutzung</string>
+    <string name="about_notes">Simulierte Standorte werden von Android immer als Mock markiert (Location.isMock), Apps, die das prüfen, bemerken es also. Nutze die App nur, um deine eigenen Apps zu testen. Nutze sie nicht, um zu schummeln oder gegen die Nutzungsbedingungen anderer Dienste zu verstoßen.</string>
+    <string name="about_section_privacy">Datenschutz</string>
+    <string name="about_privacy">Keine Werbung, keine Analyse, keine Konten und kein eigener Server. Favoriten und Einstellungen werden nur auf deinem Gerät gespeichert. Wenn du suchst, eine Route planst oder die Karte ansiehst, werden der Suchtext und zugehörige Koordinaten direkt an die unten aufgeführten Dienste gesendet.</string>
+    <string name="about_privacy_policy">Datenschutzerklärung</string>
+    <string name="about_section_third_party">Dienste und Daten von Drittanbietern</string>
+    <string name="about_third_party">• Karte: OpenFreeMap, Daten © OpenMapTiles © OpenStreetMap contributors (ODbL)\n• Adresssuche: Android Geocoder (Google), Photon (komoot), Nominatim (OpenStreetMap)\n• Routing: OSRM unter routing.openstreetmap.de (FOSSGIS)\n• Bibliotheken: MapLibre Native (BSD-2-Clause), AndroidX, Jetpack Compose, Google Play services Location</string>
+    <string name="about_osm_copyright">OpenStreetMap-Urheberrecht</string>
+</resources>

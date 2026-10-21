@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- common -->
+    <string name="common_back">Geri</string>
+    <string name="common_save">Kaydet</string>
+    <string name="common_cancel">İptal</string>
+    <string name="common_stop">Durdur</string>
+    <string name="common_pause">Duraklat</string>
+    <string name="common_resume">Devam et</string>
+    <string name="common_copied">Kopyalandı</string>
+    <string name="common_copy_command">Komutu kopyala</string>
+    <!-- Status texts shared by the map card and the notification -->
+    <string name="common_arrived">Varış noktasına ulaşıldı</string>
+    <string name="common_route_paused">Rota duraklatıldı</string>
+    <string name="common_following_route">Rota izleniyor · %1$d km/h</string>
+    <string name="common_mocking">Konum simüle ediliyor</string>
+
+    <!-- durations: %1$d = minutes, or hours and minutes -->
+    <string name="duration_minutes">%1$d dk</string>
+    <string name="duration_hours_minutes">%1$d sa %2$d dk</string>
+
+    <!-- notification -->
+    <string name="notif_channel_name">Konum simülasyonu</string>
+    <string name="notif_preparing">Hazırlanıyor…</string>
+    <string name="notif_moving_joystick">Joystick ile hareket ediliyor</string>
+    <!-- %1$s = coordinates, %2$s = distance covered, %3$s = total distance -->
+    <string name="notif_route_text">%1$s · %2$s / %3$s</string>
+    <string name="notif_action_joystick">Joystick</string>
+    <string name="notif_action_hide_joystick">Joystick\'i gizle</string>
+
+    <!-- joystick overlay -->
+    <string name="joystick_run">Koşu</string>
+    <string name="joystick_speed">Hız</string>
+    <!-- %1$s = speed name, %2$d = speed in km/h -->
+    <string name="joystick_speed_label">%1$s %2$d km/h</string>
+
+    <!-- errors and toasts from the service and the network layer -->
+    <string name="error_no_favorite">\"%1$s\" adlı bir favori yok</string>
+    <!-- %1$s = query, %2$s = reason -->
+    <string name="error_search_failed">\"%1$s\" bulunamadı: %2$s</string>
+    <string name="error_detail_no_results">sonuç yok</string>
+    <string name="error_missing_coordinates">Koordinatlar eksik</string>
+    <string name="error_no_route">Henüz rota yok</string>
+    <string name="error_route_min_points">Bir rota için en az 2 nokta gerekir</string>
+    <string name="error_route_too_short">Rota çok kısa</string>
+    <!-- %1$s = reason -->
+    <string name="error_route_failed">Rota bulunamadı: %1$s</string>
+    <string name="error_detail_route_too_short">rota çok kısa</string>
+    <string name="error_detail_route_not_found">rota bulunamadı</string>
+    <string name="error_detail_server_busy">sunucu aşırı yüklü, daha sonra tekrar deneyin</string>
+    <string name="error_detail_network">ağ hatası</string>
+    <string name="error_no_start_position">Henüz bir başlangıç konumu yok</string>
+    <string name="error_invalid_coordinates">Geçersiz koordinatlar</string>
+    <string name="error_not_mock_app">Geliştirici seçeneklerinde MockGPS \"sahte konum uygulaması\" olarak seçilmemiş</string>
+    <string name="error_no_source">Ayarlar\'da hiçbir konum kaynağı açık değil</string>
+    <string name="error_mock_app_lost">MockGPS artık sahte konum uygulaması değil</string>
+    <!-- %1$s = reason -->
+    <string name="error_foreground_failed">Arka plan hizmeti başlatılamadı: %1$s</string>
+    <string name="error_overlay_permission">Joystick için \"Diğer uygulamaların üzerinde göster\" izni gerekir</string>
+
+    <!-- map: search bar, menu, status cards -->
+    <string name="map_search_hint">Adres, koordinat veya Google Maps bağlantısı</string>
+    <string name="map_search_clear">Temizle</string>
+    <string name="map_menu">Menü</string>
+    <string name="map_menu_about">Hakkında ve gizlilik</string>
+    <string name="map_my_location">Geçerli konuma git</string>
+    <string name="map_result_coordinates">Koordinatlar</string>
+    <!-- %1$s = error message -->
+    <string name="map_search_error">Arama hatası: %1$s</string>
+    <string name="map_no_results">Sonuç bulunamadı</string>
+    <string name="map_running_moving">Hareket halinde · %1$d km/h</string>
+    <string name="map_no_location_permission">Konum izni eksik: yalnızca GPS ve ağ simüle edilebilir</string>
+    <string name="map_setup_incomplete_title">Kurulum tamamlanmadı</string>
+    <string name="map_setup_incomplete_body">Kalan adımları görmek için dokunun</string>
+
+    <!-- sheet: panes and point -->
+    <string name="sheet_pane_point">Nokta</string>
+    <string name="sheet_pane_route">Rota</string>
+    <string name="sheet_pane_fav">Favoriler</string>
+    <string name="sheet_hint_select_point">Nokta seçmek için haritaya uzun basın veya arama yapın</string>
+    <string name="sheet_selected_point">Seçilen nokta</string>
+    <string name="sheet_copy_coordinates">Koordinatları kopyala</string>
+    <string name="sheet_teleport_here">Buraya ışınlan</string>
+    <string name="sheet_start_mock">Simülasyonu başlat</string>
+    <string name="sheet_joystick_title">Yüzen joystick</string>
+    <string name="sheet_joystick_desc">Simülasyon sırasında diğer uygulamaların üzerinde hareket edin</string>
+    <string name="sheet_joystick_permission">MockGPS\'in diğer uygulamaların üzerinde görünmesine izin verin, sonra bunu tekrar açın</string>
+    <string name="sheet_search_hint">Arama kutusu \"10.7769, 106.7009\" gibi koordinatları, bir adresi veya bir Google Maps bağlantısını kabul eder. Google Maps\'ten bir yeri MockGPS ile de paylaşabilirsiniz.</string>
+
+    <!-- route -->
+    <string name="route_gpx_too_few_points">GPX dosyasında yeterli nokta yok</string>
+    <!-- %1$s = error message -->
+    <string name="route_gpx_read_error">GPX okunamadı: %1$s</string>
+    <string name="route_running">Rota çalışıyor</string>
+    <string name="route_finding">Rota aranıyor…</string>
+    <plurals name="route_gpx_points">
+        <item quantity="one">GPX dosyası · %1$d nokta</item>
+        <item quantity="other">GPX dosyası · %1$d nokta</item>
+    </plurals>
+    <plurals name="route_point_count">
+        <item quantity="one">%1$d nokta</item>
+        <item quantity="other">%1$d nokta</item>
+    </plurals>
+    <string name="route_hint_add_points">Nokta eklemek için haritaya uzun basın</string>
+    <string name="route_need_one_more">En az bir nokta daha ekleyin</string>
+    <string name="route_error_straight">Rota bulunamadı, şimdilik düz çizgiler kullanılıyor</string>
+    <!-- %1$s = distance, %2$s = duration, %3$d = speed in km/h -->
+    <string name="route_estimate">%1$s · %3$d km/h hızla yaklaşık %2$s</string>
+    <string name="route_or_open_gpx">veya bir GPX dosyası açın</string>
+    <!-- %1$s = distance covered, %2$s = total distance -->
+    <string name="route_progress">%1$s / %2$s</string>
+    <!-- %3$s = estimated time left -->
+    <string name="route_progress_eta">%1$s / %2$s · %3$s kaldı</string>
+    <string name="route_undo">Son noktayı kaldır</string>
+    <string name="route_clear">Rotayı temizle</string>
+    <string name="route_open_gpx">GPX dosyası aç</string>
+    <string name="route_restart">Yeniden çalıştır</string>
+    <string name="route_start">Rotayı başlat</string>
+    <string name="route_travel_title">Ulaşım modu</string>
+    <string name="route_travel_foot">Yürüyüş</string>
+    <string name="route_travel_bike">Bisiklet</string>
+    <string name="route_travel_motorbike">Motosiklet</string>
+    <string name="route_travel_car">Araba</string>
+    <!-- %1$s = travel mode, %2$d = default speed in km/h -->
+    <string name="route_travel_chip">%1$s · %2$d</string>
+    <string name="route_connect_title">Noktaları birleştir</string>
+    <string name="route_connect_road">Yollar boyunca</string>
+    <string name="route_connect_straight">Düz çizgi</string>
+    <string name="route_speed">Hız: %1$d km/h</string>
+    <string name="route_end_title">Varışta</string>
+    <string name="route_end_stop">Sonda dur</string>
+    <string name="route_end_loop">Tekrarla</string>
+    <string name="route_end_pingpong">Gidiş-dönüş</string>
+
+    <!-- favorites -->
+    <string name="fav_hint_empty">Bir nokta seçin, sonra buraya kaydetmek için ☆ simgesine dokunun</string>
+    <plurals name="fav_saved_count">
+        <item quantity="one">%1$d kayıtlı yer · tümünü görmek için yukarı sürükleyin</item>
+        <item quantity="other">%1$d kayıtlı yer · tümünü görmek için yukarı sürükleyin</item>
+    </plurals>
+    <string name="fav_save">Favorilere kaydet</string>
+    <string name="fav_save_title">Favoriyi kaydet</string>
+    <string name="fav_name_label">Ad</string>
+    <!-- %1$s = favorite name -->
+    <string name="fav_saved">\"%1$s\" kaydedildi</string>
+    <string name="fav_deleted">\"%1$s\" silindi</string>
+    <string name="fav_undo">Geri al</string>
+    <string name="fav_start_now">Şimdi simüle et</string>
+    <string name="fav_delete">Sil</string>
+
+    <!-- setup -->
+    <string name="setup_title">Kurulum</string>
+    <string name="setup_intro">Android, bir uygulamanın konumu simüle etmesine ancak onu Geliştirici seçeneklerinde seçtikten sonra izin verir. Bunu yalnızca bir kez yapmanız yeterli.</string>
+    <!-- %1$s = step title -->
+    <string name="setup_step_optional">%1$s (isteğe bağlı)</string>
+    <string name="setup_done">Bitti</string>
+    <string name="setup_step1_title">Geliştirici seçeneklerini açın</string>
+    <string name="setup_step1_body">Ayarlar → Telefon hakkında → Yazılım bilgileri → \"Derleme numarası\" öğesine 7 kez dokunun.</string>
+    <string name="setup_step1_action">Telefon hakkında sayfasını aç</string>
+    <string name="setup_step2_title">MockGPS\'i sahte konum uygulaması olarak seçin</string>
+    <string name="setup_step2_body">Geliştirici seçeneklerinde \"Sahte konum uygulamasını seçin\" öğesini bulun ve MockGPS\'i seçin.</string>
+    <string name="setup_step2_action">Geliştirici seçeneklerini aç</string>
+    <string name="setup_step3_title">Konuma ve bildirimlere izin verin</string>
+    <string name="setup_step3_body">Konum izni, MockGPS\'in çoğu uygulamanın kullandığı fused kaynağını da simüle etmesini sağlar. Bildirimler durumu ve Durdur düğmesini gösterir.</string>
+    <string name="setup_step3_action">İzin ver</string>
+    <string name="setup_step3_secondary">Uygulama ayarları</string>
+    <string name="setup_step4_title">Diğer uygulamaların üzerinde göster</string>
+    <string name="setup_step4_body">Yalnızca başka bir uygulama açıkken hareket etmek için yüzen joystick kullanıyorsanız gerekir.</string>
+    <string name="setup_step4_action">Ayarları aç</string>
+    <string name="setup_step5_title">Kısıtlanmamış pil</string>
+    <string name="setup_step5_body">Ekran uzun süre kapalı kaldığında sistemin simülasyonu durdurmaması için Samsung, Xiaomi ve Oppo cihazlarda önerilir.</string>
+    <string name="setup_step5_action">Pil ayarlarını aç</string>
+    <string name="setup_quick_title">adb ile hızlı kurulum</string>
+    <string name="setup_quick_body">Telefon hata ayıklama kablosuyla bağlıyken 2. ve 3. adımları atlayın:</string>
+    <string name="setup_start">Başla</string>
+    <string name="setup_finish_steps">Devam etmek için 2. ve 3. adımları tamamlayın</string>
+    <string name="setup_later">Sonra</string>
+
+    <!-- settings -->
+    <string name="settings_title">Ayarlar</string>
+    <string name="settings_running_note">Sinyal ve konum kaynaklarındaki değişiklikler simülasyonu bir sonraki başlatışınızda uygulanır.</string>
+    <string name="settings_section_signal">Simülasyon sinyali</string>
+    <string name="settings_accuracy">Doğruluk: %1$d m</string>
+    <string name="settings_altitude">Rakım: %1$d m</string>
+    <string name="settings_jitter_title">Doğal sapma</string>
+    <string name="settings_jitter_desc">Gerçek bir GPS alıcısı gibi birkaç metrelik hata ekler</string>
+    <string name="settings_interval">Güncelleme sıklığı</string>
+    <string name="settings_interval_500ms">0,5 sn</string>
+    <string name="settings_interval_1s">1 sn</string>
+    <string name="settings_interval_2s">2 sn</string>
+    <string name="settings_interval_5s">5 sn</string>
+    <string name="settings_section_sources">Simüle edilen konum kaynakları</string>
+    <string name="settings_source_network">Ağ</string>
+    <string name="settings_source_fused_desc">Android\'in fused kaynağı ve Google Play services (FusedLocationProviderClient)</string>
+    <string name="settings_section_joystick">Joystick</string>
+    <string name="settings_joystick_speed">Varsayılan hız</string>
+    <string name="settings_speed_kmh">%1$d km/h</string>
+    <string name="settings_section_language">Dil</string>
+    <string name="settings_app_language">Uygulama dili</string>
+    <string name="settings_section_map">Harita</string>
+    <string name="settings_theme_auto">Sistemi takip et</string>
+    <string name="settings_theme_light">Açık</string>
+    <string name="settings_theme_dark">Koyu</string>
+    <string name="settings_section_routing">Rota sunucusu (OSRM)</string>
+    <string name="settings_routing_desc">Varsayılan olarak herkese açık FOSSGIS sunucusunu kullanır (saniyede en fazla 1 istek). Kendi OSRM sunucunuzu belirtebilirsiniz; {profile}, foot, bike veya car ile değiştirilir.</string>
+    <string name="settings_routing_reset">Varsayılana dön</string>
+
+    <!-- adb screen -->
+    <string name="adb_title">adb ile kontrol</string>
+    <string name="adb_intro">Her şey bir bilgisayardan tetiklenebilir; bu, otomatik testler için kullanışlıdır. Hizmet android.permission.DUMP iznini gerektirir, bu yüzden onu yalnızca bu uygulama ve adb shell kontrol edebilir; diğer uygulamalar edemez.</string>
+    <string name="adb_section_point">Bir noktada kal</string>
+    <string name="adb_alt_hint" tools:ignore="TypographyDashes">Rakımı (m) ayarlamak için --es alt 25 ekleyin.</string>
+    <string name="adb_section_query">Adrese veya Google Maps bağlantısına göre</string>
+    <string name="adb_section_fav">Kayıtlı favori</string>
+    <string name="adb_section_route">Bir rotayı izle</string>
+    <string name="adb_route_params">by: road (yolları izle) veya noktaları düz çizgiyle birleştirmek için boş bırakın · travel: foot, bike, motorbike, car · end: stop, loop, pingpong · speed: km/h.</string>
+    <string name="adb_section_controls">Kontroller</string>
+    <string name="adb_section_check">Sistemin aldığı konumu kontrol et</string>
+
+    <!-- about screen -->
+    <string name="about_title">Hakkında</string>
+    <!-- %1$s = version name -->
+    <string name="about_app_version">MockGPS %1$s</string>
+    <string name="about_description">Geliştiricilerin ve test uzmanlarının konuma dayalı özellikleri test etmesi için bir konum simülasyonu aracı. DSAI (dsai.vn) tarafından geliştirildi.</string>
+    <string name="about_section_notes">Kullanım notları</string>
+    <string name="about_notes">Simüle edilen konumlar Android tarafından her zaman mock olarak işaretlenir (Location.isMock), bu nedenle bunu kontrol eden uygulamalar fark eder. Yalnızca kendi uygulamalarınızı test etmek için kullanın. Hile yapmak veya diğer hizmetlerin şartlarını ihlal etmek için kullanmayın.</string>
+    <string name="about_section_privacy">Gizlilik</string>
+    <string name="about_privacy">Reklam yok, analiz yok, hesap yok ve kendi sunucumuz yok. Favoriler ve ayarlar yalnızca cihazınızda saklanır. Arama yaptığınızda, rota planladığınızda veya haritayı görüntülediğinizde arama metni ve ilgili koordinatlar aşağıda listelenen hizmetlere doğrudan gönderilir.</string>
+    <string name="about_privacy_policy">Gizlilik politikası</string>
+    <string name="about_section_third_party">Üçüncü taraf hizmetler ve veriler</string>
+    <string name="about_third_party">• Harita: OpenFreeMap, veriler © OpenMapTiles © OpenStreetMap contributors (ODbL)\n• Adres arama: Android Geocoder (Google), Photon (komoot), Nominatim (OpenStreetMap)\n• Rota: OSRM, routing.openstreetmap.de üzerinde (FOSSGIS)\n• Kitaplıklar: MapLibre Native (BSD-2-Clause), AndroidX, Jetpack Compose, Google Play services Location</string>
+    <string name="about_osm_copyright">OpenStreetMap telif hakkı</string>
+</resources>

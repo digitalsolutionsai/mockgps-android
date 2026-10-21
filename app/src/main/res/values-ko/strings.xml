@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- common -->
+    <string name="common_back">뒤로</string>
+    <string name="common_save">저장</string>
+    <string name="common_cancel">취소</string>
+    <string name="common_stop">중지</string>
+    <string name="common_pause">일시중지</string>
+    <string name="common_resume">재개</string>
+    <string name="common_copied">복사됨</string>
+    <string name="common_copy_command">명령어 복사</string>
+    <!-- Status texts shared by the map card and the notification -->
+    <string name="common_arrived">목적지에 도착했습니다</string>
+    <string name="common_route_paused">경로 일시중지됨</string>
+    <string name="common_following_route">경로 따라 이동 중 · %1$d km/h</string>
+    <string name="common_mocking">위치 모의 중</string>
+
+    <!-- durations: %1$d = minutes, or hours and minutes -->
+    <string name="duration_minutes">%1$d분</string>
+    <string name="duration_hours_minutes">%1$d시간 %2$d분</string>
+
+    <!-- notification -->
+    <string name="notif_channel_name">위치 모의</string>
+    <string name="notif_preparing">준비 중…</string>
+    <string name="notif_moving_joystick">조이스틱으로 이동 중</string>
+    <!-- %1$s = coordinates, %2$s = distance covered, %3$s = total distance -->
+    <string name="notif_route_text">%1$s · %2$s / %3$s</string>
+    <string name="notif_action_joystick">조이스틱</string>
+    <string name="notif_action_hide_joystick">조이스틱 숨기기</string>
+
+    <!-- joystick overlay -->
+    <string name="joystick_run">달리기</string>
+    <string name="joystick_speed">속도</string>
+    <!-- %1$s = speed name, %2$d = speed in km/h -->
+    <string name="joystick_speed_label">%1$s %2$d km/h</string>
+
+    <!-- errors and toasts from the service and the network layer -->
+    <string name="error_no_favorite">이름이 \"%1$s\"인 즐겨찾기가 없습니다</string>
+    <!-- %1$s = query, %2$s = reason -->
+    <string name="error_search_failed">\"%1$s\" 검색 실패: %2$s</string>
+    <string name="error_detail_no_results">결과 없음</string>
+    <string name="error_missing_coordinates">좌표가 없습니다</string>
+    <string name="error_no_route">아직 경로가 없습니다</string>
+    <string name="error_route_min_points">경로에는 지점이 2개 이상 필요합니다</string>
+    <string name="error_route_too_short">경로가 너무 짧습니다</string>
+    <!-- %1$s = reason -->
+    <string name="error_route_failed">경로를 찾을 수 없습니다: %1$s</string>
+    <string name="error_detail_route_too_short">경로가 너무 짧음</string>
+    <string name="error_detail_route_not_found">경로를 찾을 수 없음</string>
+    <string name="error_detail_server_busy">서버가 과부하 상태입니다. 나중에 다시 시도해 주세요</string>
+    <string name="error_detail_network">네트워크 오류</string>
+    <string name="error_no_start_position">시작할 위치가 아직 없습니다</string>
+    <string name="error_invalid_coordinates">올바르지 않은 좌표입니다</string>
+    <string name="error_not_mock_app">개발자 옵션에서 MockGPS가 \"모의 위치 앱\"으로 선택되어 있지 않습니다</string>
+    <string name="error_no_source">설정에서 켜져 있는 위치 소스가 없습니다</string>
+    <string name="error_mock_app_lost">MockGPS가 더 이상 모의 위치 앱이 아닙니다</string>
+    <!-- %1$s = reason -->
+    <string name="error_foreground_failed">백그라운드 서비스를 시작할 수 없습니다: %1$s</string>
+    <string name="error_overlay_permission">조이스틱을 사용하려면 \"다른 앱 위에 표시\" 권한이 필요합니다</string>
+
+    <!-- map: search bar, menu, status cards -->
+    <string name="map_search_hint">주소, 좌표 또는 Google Maps 링크</string>
+    <string name="map_search_clear">지우기</string>
+    <string name="map_menu">메뉴</string>
+    <string name="map_menu_about">정보 및 개인정보 보호</string>
+    <string name="map_my_location">현재 위치로 이동</string>
+    <string name="map_result_coordinates">좌표</string>
+    <!-- %1$s = error message -->
+    <string name="map_search_error">검색 오류: %1$s</string>
+    <string name="map_no_results">검색 결과가 없습니다</string>
+    <string name="map_running_moving">이동 중 · %1$d km/h</string>
+    <string name="map_no_location_permission">위치 권한 없음: GPS와 네트워크만 모의할 수 있습니다</string>
+    <string name="map_setup_incomplete_title">설정이 완료되지 않았습니다</string>
+    <string name="map_setup_incomplete_body">탭하여 남은 단계 확인</string>
+
+    <!-- sheet: panes and point -->
+    <string name="sheet_pane_point">지점</string>
+    <string name="sheet_pane_route">경로</string>
+    <string name="sheet_pane_fav">즐겨찾기</string>
+    <string name="sheet_hint_select_point">지도를 길게 누르거나 검색하여 지점을 선택하세요</string>
+    <string name="sheet_selected_point">선택한 지점</string>
+    <string name="sheet_copy_coordinates">좌표 복사</string>
+    <string name="sheet_teleport_here">여기로 순간이동</string>
+    <string name="sheet_start_mock">모의 시작</string>
+    <string name="sheet_joystick_title">플로팅 조이스틱</string>
+    <string name="sheet_joystick_desc">모의 중에 다른 앱 위에서 바로 이동합니다</string>
+    <string name="sheet_joystick_permission">MockGPS가 다른 앱 위에 표시되도록 허용한 후 다시 켜세요</string>
+    <string name="sheet_search_hint">검색창에는 \"10.7769, 106.7009\" 같은 좌표, 주소 또는 Google Maps 링크를 입력할 수 있습니다. Google Maps에서 장소를 MockGPS로 공유할 수도 있습니다.</string>
+
+    <!-- route -->
+    <string name="route_gpx_too_few_points">GPX 파일에 지점이 충분하지 않습니다</string>
+    <!-- %1$s = error message -->
+    <string name="route_gpx_read_error">GPX를 읽을 수 없습니다: %1$s</string>
+    <string name="route_running">경로 실행 중</string>
+    <string name="route_finding">경로 찾는 중…</string>
+    <plurals name="route_gpx_points">
+        <item quantity="other">GPX 파일 · 지점 %1$d개</item>
+    </plurals>
+    <plurals name="route_point_count">
+        <item quantity="other">지점 %1$d개</item>
+    </plurals>
+    <string name="route_hint_add_points">지도를 길게 눌러 지점을 추가하세요</string>
+    <string name="route_need_one_more">지점을 하나 이상 더 추가하세요</string>
+    <string name="route_error_straight">경로를 찾을 수 없어 임시로 직선으로 연결합니다</string>
+    <!-- %1$s = distance, %2$s = duration, %3$d = speed in km/h -->
+    <string name="route_estimate">%1$s · %3$d km/h로 약 %2$s</string>
+    <string name="route_or_open_gpx">또는 GPX 파일 열기</string>
+    <!-- %1$s = distance covered, %2$s = total distance -->
+    <string name="route_progress">%1$s / %2$s</string>
+    <!-- %3$s = estimated time left -->
+    <string name="route_progress_eta">%1$s / %2$s · %3$s 남음</string>
+    <string name="route_undo">마지막 지점 삭제</string>
+    <string name="route_clear">경로 지우기</string>
+    <string name="route_open_gpx">GPX 파일 열기</string>
+    <string name="route_restart">다시 실행</string>
+    <string name="route_start">경로 시작</string>
+    <string name="route_travel_title">이동 수단</string>
+    <string name="route_travel_foot">도보</string>
+    <string name="route_travel_bike">자전거</string>
+    <string name="route_travel_motorbike">오토바이</string>
+    <string name="route_travel_car">자동차</string>
+    <!-- %1$s = travel mode, %2$d = default speed in km/h -->
+    <string name="route_travel_chip">%1$s · %2$d</string>
+    <string name="route_connect_title">지점 연결 방식</string>
+    <string name="route_connect_road">도로를 따라</string>
+    <string name="route_connect_straight">직선</string>
+    <string name="route_speed">속도: %1$d km/h</string>
+    <string name="route_end_title">도착 시</string>
+    <string name="route_end_stop">도착 후 정지</string>
+    <string name="route_end_loop">반복</string>
+    <string name="route_end_pingpong">왕복</string>
+
+    <!-- favorites -->
+    <string name="fav_hint_empty">지점을 선택한 후 ☆를 탭하면 여기에 저장됩니다</string>
+    <plurals name="fav_saved_count">
+        <item quantity="other">저장된 장소 %1$d개 · 위로 드래그하여 모두 보기</item>
+    </plurals>
+    <string name="fav_save">즐겨찾기에 저장</string>
+    <string name="fav_save_title">즐겨찾기 저장</string>
+    <string name="fav_name_label">이름</string>
+    <!-- %1$s = favorite name -->
+    <string name="fav_saved">\"%1$s\" 저장됨</string>
+    <string name="fav_deleted">\"%1$s\" 삭제됨</string>
+    <string name="fav_undo">실행취소</string>
+    <string name="fav_start_now">바로 시작</string>
+    <string name="fav_delete">삭제</string>
+
+    <!-- setup -->
+    <string name="setup_title">초기 설정</string>
+    <string name="setup_intro">Android에서는 개발자 옵션에서 선택한 앱만 위치를 모의할 수 있습니다. 한 번만 설정하면 됩니다.</string>
+    <!-- %1$s = step title -->
+    <string name="setup_step_optional">%1$s (선택사항)</string>
+    <string name="setup_done">완료</string>
+    <string name="setup_step1_title">개발자 옵션 켜기</string>
+    <string name="setup_step1_body">설정 → 휴대전화 정보 → 소프트웨어 정보 → \"빌드 번호\"를 7번 탭하세요.</string>
+    <string name="setup_step1_action">휴대전화 정보 열기</string>
+    <string name="setup_step2_title">MockGPS를 모의 위치 앱으로 선택</string>
+    <string name="setup_step2_body">개발자 옵션에서 \"모의 위치 앱 선택\"을 찾아 MockGPS를 선택하세요.</string>
+    <string name="setup_step2_action">개발자 옵션 열기</string>
+    <string name="setup_step3_title">위치 및 알림 허용</string>
+    <string name="setup_step3_body">위치 권한을 허용하면 대부분의 앱이 사용하는 Fused 소스도 모의할 수 있습니다. 알림에는 상태와 중지 버튼이 표시됩니다.</string>
+    <string name="setup_step3_action">권한 허용</string>
+    <string name="setup_step3_secondary">앱 설정</string>
+    <string name="setup_step4_title">다른 앱 위에 표시</string>
+    <string name="setup_step4_body">다른 앱을 열어 둔 채 플로팅 조이스틱으로 이동할 때만 필요합니다.</string>
+    <string name="setup_step4_action">설정 열기</string>
+    <string name="setup_step5_title">배터리 제한 없음</string>
+    <string name="setup_step5_body">화면이 오래 꺼져 있어도 시스템이 모의를 중단하지 않도록 Samsung, Xiaomi, Oppo에서 설정하는 것을 권장합니다.</string>
+    <string name="setup_step5_action">배터리 설정 열기</string>
+    <string name="setup_quick_title">adb로 빠른 설정</string>
+    <string name="setup_quick_body">휴대전화가 디버깅용 케이블로 연결되어 있다면 2단계와 3단계를 건너뛸 수 있습니다:</string>
+    <string name="setup_start">시작하기</string>
+    <string name="setup_finish_steps">계속하려면 2단계와 3단계를 완료하세요</string>
+    <string name="setup_later">나중에</string>
+
+    <!-- settings -->
+    <string name="settings_title">설정</string>
+    <string name="settings_running_note">신호 및 위치 소스 변경 사항은 다음에 모의를 시작할 때 적용됩니다.</string>
+    <string name="settings_section_signal">모의 신호</string>
+    <string name="settings_accuracy">정확도: %1$d m</string>
+    <string name="settings_altitude">고도: %1$d m</string>
+    <string name="settings_jitter_title">자연스러운 흔들림</string>
+    <string name="settings_jitter_desc">실제 GPS 수신기처럼 몇 미터의 오차를 추가합니다</string>
+    <string name="settings_interval">업데이트 빈도</string>
+    <string name="settings_interval_500ms">0.5초</string>
+    <string name="settings_interval_1s">1초</string>
+    <string name="settings_interval_2s">2초</string>
+    <string name="settings_interval_5s">5초</string>
+    <string name="settings_section_sources">모의할 위치 소스</string>
+    <string name="settings_source_network">네트워크</string>
+    <string name="settings_source_fused_desc">Android의 Fused 소스 및 Google Play services (FusedLocationProviderClient)</string>
+    <string name="settings_section_joystick">조이스틱</string>
+    <string name="settings_joystick_speed">기본 속도</string>
+    <string name="settings_speed_kmh">%1$d km/h</string>
+    <string name="settings_section_language">언어</string>
+    <string name="settings_app_language">앱 언어</string>
+    <string name="settings_section_map">지도</string>
+    <string name="settings_theme_auto">시스템 설정 따름</string>
+    <string name="settings_theme_light">라이트</string>
+    <string name="settings_theme_dark">다크</string>
+    <string name="settings_section_routing">경로 서버 (OSRM)</string>
+    <string name="settings_routing_desc">기본적으로 공용 FOSSGIS 서버를 사용합니다 (초당 최대 1회 요청). 직접 운영하는 OSRM 서버를 지정할 수도 있으며, {profile}은 foot, bike 또는 car로 대체됩니다.</string>
+    <string name="settings_routing_reset">기본값으로 복원</string>
+
+    <!-- adb screen -->
+    <string name="adb_title">adb로 제어</string>
+    <string name="adb_intro">모든 기능을 컴퓨터에서 실행할 수 있어 자동화 테스트에 편리합니다. 이 서비스에는 android.permission.DUMP 권한이 필요하므로 이 앱과 adb shell만 제어할 수 있으며, 다른 앱은 제어할 수 없습니다.</string>
+    <string name="adb_section_point">한 지점에 머물기</string>
+    <string name="adb_alt_hint" tools:ignore="TypographyDashes">--es alt 25를 추가하면 고도(m)를 설정할 수 있습니다.</string>
+    <string name="adb_section_query">주소 또는 Google Maps 링크로 지정</string>
+    <string name="adb_section_fav">저장한 즐겨찾기</string>
+    <string name="adb_section_route">경로 따라가기</string>
+    <string name="adb_route_params">by: road(도로를 따라) 또는 비워 두면 지점을 직선으로 연결 · travel: foot, bike, motorbike, car · end: stop, loop, pingpong · speed: km/h.</string>
+    <string name="adb_section_controls">제어</string>
+    <string name="adb_section_check">시스템이 수신하는 위치 확인</string>
+
+    <!-- about screen -->
+    <string name="about_title">정보</string>
+    <!-- %1$s = version name -->
+    <string name="about_app_version">MockGPS %1$s</string>
+    <string name="about_description">개발자와 테스터가 위치 기반 기능을 테스트할 수 있는 위치 모의 도구입니다. DSAI(dsai.vn)에서 개발했습니다.</string>
+    <string name="about_section_notes">사용 시 유의사항</string>
+    <string name="about_notes">모의 위치는 항상 Android에서 모의로 표시되므로(Location.isMock) 이를 확인하는 앱은 알아챌 수 있습니다. 본인 앱을 테스트하는 용도로만 사용하세요. 부정행위나 다른 서비스의 약관 위반에는 사용하지 마세요.</string>
+    <string name="about_section_privacy">개인정보 보호</string>
+    <string name="about_privacy">광고, 분석, 계정, 자체 서버가 없습니다. 즐겨찾기와 설정은 기기에만 저장됩니다. 검색하거나 경로를 계획하거나 지도를 볼 때 검색어와 관련 좌표가 아래 서비스로 직접 전송됩니다.</string>
+    <string name="about_privacy_policy">개인정보 처리방침</string>
+    <string name="about_section_third_party">서드파티 서비스 및 데이터</string>
+    <string name="about_third_party">• 지도: OpenFreeMap, 데이터 © OpenMapTiles © OpenStreetMap contributors (ODbL)\n• 주소 검색: Android Geocoder(Google), Photon(komoot), Nominatim(OpenStreetMap)\n• 경로 검색: routing.openstreetmap.de의 OSRM(FOSSGIS)\n• 라이브러리: MapLibre Native (BSD-2-Clause), AndroidX, Jetpack Compose, Google Play services Location</string>
+    <string name="about_osm_copyright">OpenStreetMap 저작권</string>
+</resources>

@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- common -->
+    <string name="common_back">กลับ</string>
+    <string name="common_save">บันทึก</string>
+    <string name="common_cancel">ยกเลิก</string>
+    <string name="common_stop">หยุด</string>
+    <string name="common_pause">หยุดชั่วคราว</string>
+    <string name="common_resume">ทำต่อ</string>
+    <string name="common_copied">คัดลอกแล้ว</string>
+    <string name="common_copy_command">คัดลอกคำสั่ง</string>
+    <!-- Status texts shared by the map card and the notification -->
+    <string name="common_arrived">ถึงจุดหมายแล้ว</string>
+    <string name="common_route_paused">หยุดเส้นทางชั่วคราว</string>
+    <string name="common_following_route">กำลังเคลื่อนที่ตามเส้นทาง · %1$d km/h</string>
+    <string name="common_mocking">กำลังจำลองตำแหน่ง</string>
+
+    <!-- durations: %1$d = minutes, or hours and minutes -->
+    <string name="duration_minutes">%1$d นาที</string>
+    <string name="duration_hours_minutes">%1$d ชั่วโมง %2$d นาที</string>
+
+    <!-- notification -->
+    <string name="notif_channel_name">การจำลองตำแหน่ง</string>
+    <string name="notif_preparing">กำลังเตรียม…</string>
+    <string name="notif_moving_joystick">กำลังเคลื่อนที่ด้วยจอยสติ๊ก</string>
+    <!-- %1$s = coordinates, %2$s = distance covered, %3$s = total distance -->
+    <string name="notif_route_text">%1$s · %2$s / %3$s</string>
+    <string name="notif_action_joystick">จอยสติ๊ก</string>
+    <string name="notif_action_hide_joystick">ซ่อนจอยสติ๊ก</string>
+
+    <!-- joystick overlay -->
+    <string name="joystick_run">วิ่ง</string>
+    <string name="joystick_speed">ความเร็ว</string>
+    <!-- %1$s = speed name, %2$d = speed in km/h -->
+    <string name="joystick_speed_label">%1$s %2$d km/h</string>
+
+    <!-- errors and toasts from the service and the network layer -->
+    <string name="error_no_favorite">ไม่มีรายการโปรดชื่อ \"%1$s\"</string>
+    <!-- %1$s = query, %2$s = reason -->
+    <string name="error_search_failed">ไม่พบ \"%1$s\": %2$s</string>
+    <string name="error_detail_no_results">ไม่มีผลลัพธ์</string>
+    <string name="error_missing_coordinates">ไม่มีพิกัด</string>
+    <string name="error_no_route">ยังไม่มีเส้นทาง</string>
+    <string name="error_route_min_points">เส้นทางต้องมีอย่างน้อย 2 จุด</string>
+    <string name="error_route_too_short">เส้นทางสั้นเกินไป</string>
+    <!-- %1$s = reason -->
+    <string name="error_route_failed">ค้นหาเส้นทางไม่ได้: %1$s</string>
+    <string name="error_detail_route_too_short">เส้นทางสั้นเกินไป</string>
+    <string name="error_detail_route_not_found">ไม่พบเส้นทาง</string>
+    <string name="error_detail_server_busy">เซิร์ฟเวอร์ทำงานหนักเกินไป โปรดลองใหม่ภายหลัง</string>
+    <string name="error_detail_network">เครือข่ายขัดข้อง</string>
+    <string name="error_no_start_position">ยังไม่มีตำแหน่งเริ่มต้น</string>
+    <string name="error_invalid_coordinates">พิกัดไม่ถูกต้อง</string>
+    <string name="error_not_mock_app">ยังไม่ได้เลือก MockGPS เป็น \"แอปตำแหน่งจำลอง\" ในตัวเลือกสำหรับนักพัฒนาแอป</string>
+    <string name="error_no_source">ไม่ได้เปิดแหล่งตำแหน่งใดไว้ในการตั้งค่า</string>
+    <string name="error_mock_app_lost">MockGPS ไม่ได้เป็นแอปตำแหน่งจำลองอีกต่อไป</string>
+    <!-- %1$s = reason -->
+    <string name="error_foreground_failed">เริ่มบริการเบื้องหลังไม่ได้: %1$s</string>
+    <string name="error_overlay_permission">จอยสติ๊กต้องใช้สิทธิ์ \"แสดงทับแอปอื่น\"</string>
+
+    <!-- map: search bar, menu, status cards -->
+    <string name="map_search_hint">ที่อยู่ พิกัด หรือลิงก์ Google Maps</string>
+    <string name="map_search_clear">ล้าง</string>
+    <string name="map_menu">เมนู</string>
+    <string name="map_menu_about">เกี่ยวกับและความเป็นส่วนตัว</string>
+    <string name="map_my_location">ไปที่ตำแหน่งปัจจุบัน</string>
+    <string name="map_result_coordinates">พิกัด</string>
+    <!-- %1$s = error message -->
+    <string name="map_search_error">ค้นหาผิดพลาด: %1$s</string>
+    <string name="map_no_results">ไม่พบผลลัพธ์</string>
+    <string name="map_running_moving">กำลังเคลื่อนที่ · %1$d km/h</string>
+    <string name="map_no_location_permission">ไม่มีสิทธิ์เข้าถึงตำแหน่ง: จำลองได้เฉพาะ GPS และเครือข่าย</string>
+    <string name="map_setup_incomplete_title">ตั้งค่ายังไม่เสร็จ</string>
+    <string name="map_setup_incomplete_body">แตะเพื่อดูขั้นตอนที่เหลือ</string>
+
+    <!-- sheet: panes and point -->
+    <string name="sheet_pane_point">จุด</string>
+    <string name="sheet_pane_route">เส้นทาง</string>
+    <string name="sheet_pane_fav">รายการโปรด</string>
+    <string name="sheet_hint_select_point">กดค้างที่แผนที่หรือค้นหาเพื่อเลือกจุด</string>
+    <string name="sheet_selected_point">จุดที่เลือก</string>
+    <string name="sheet_copy_coordinates">คัดลอกพิกัด</string>
+    <string name="sheet_teleport_here">เทเลพอร์ตไปที่นี่</string>
+    <string name="sheet_start_mock">เริ่มจำลอง</string>
+    <string name="sheet_joystick_title">จอยสติ๊กลอย</string>
+    <string name="sheet_joystick_desc">เคลื่อนที่ทับแอปอื่นได้ทันทีขณะจำลอง</string>
+    <string name="sheet_joystick_permission">อนุญาตให้ MockGPS แสดงทับแอปอื่น แล้วเปิดอีกครั้ง</string>
+    <string name="sheet_search_hint">ช่องค้นหารองรับพิกัด เช่น \"10.7769, 106.7009\" ที่อยู่ หรือลิงก์ Google Maps และคุณยังแชร์สถานที่จาก Google Maps มาที่ MockGPS ได้ด้วย</string>
+
+    <!-- route -->
+    <string name="route_gpx_too_few_points">ไฟล์ GPX มีจุดไม่เพียงพอ</string>
+    <!-- %1$s = error message -->
+    <string name="route_gpx_read_error">อ่าน GPX ไม่ได้: %1$s</string>
+    <string name="route_running">กำลังเดินตามเส้นทาง</string>
+    <string name="route_finding">กำลังค้นหาเส้นทาง…</string>
+    <plurals name="route_gpx_points">
+        <item quantity="other">ไฟล์ GPX · %1$d จุด</item>
+    </plurals>
+    <plurals name="route_point_count">
+        <item quantity="other">%1$d จุด</item>
+    </plurals>
+    <string name="route_hint_add_points">กดค้างที่แผนที่เพื่อเพิ่มจุด</string>
+    <string name="route_need_one_more">เพิ่มอีกอย่างน้อยหนึ่งจุด</string>
+    <string name="route_error_straight">ค้นหาเส้นทางไม่ได้ จึงใช้เส้นตรงไปก่อน</string>
+    <!-- %1$s = distance, %2$s = duration, %3$d = speed in km/h -->
+    <string name="route_estimate">%1$s · ประมาณ %2$s ที่ %3$d km/h</string>
+    <string name="route_or_open_gpx">หรือเปิดไฟล์ GPX</string>
+    <!-- %1$s = distance covered, %2$s = total distance -->
+    <string name="route_progress">%1$s / %2$s</string>
+    <!-- %3$s = estimated time left -->
+    <string name="route_progress_eta">%1$s / %2$s · เหลืออีก %3$s</string>
+    <string name="route_undo">ลบจุดสุดท้าย</string>
+    <string name="route_clear">ล้างเส้นทาง</string>
+    <string name="route_open_gpx">เปิดไฟล์ GPX</string>
+    <string name="route_restart">เริ่มใหม่</string>
+    <string name="route_start">เริ่มเส้นทาง</string>
+    <string name="route_travel_title">รูปแบบการเดินทาง</string>
+    <string name="route_travel_foot">เดิน</string>
+    <string name="route_travel_bike">จักรยาน</string>
+    <string name="route_travel_motorbike">มอเตอร์ไซค์</string>
+    <string name="route_travel_car">รถยนต์</string>
+    <!-- %1$s = travel mode, %2$d = default speed in km/h -->
+    <string name="route_travel_chip">%1$s · %2$d</string>
+    <string name="route_connect_title">การเชื่อมจุด</string>
+    <string name="route_connect_road">ตามถนน</string>
+    <string name="route_connect_straight">เส้นตรง</string>
+    <string name="route_speed">ความเร็ว: %1$d km/h</string>
+    <string name="route_end_title">เมื่อถึงจุดหมาย</string>
+    <string name="route_end_stop">หยุดที่จุดหมาย</string>
+    <string name="route_end_loop">วนซ้ำ</string>
+    <string name="route_end_pingpong">ไปกลับ</string>
+
+    <!-- favorites -->
+    <string name="fav_hint_empty">เลือกจุด แล้วแตะ ☆ เพื่อบันทึกไว้ที่นี่</string>
+    <plurals name="fav_saved_count">
+        <item quantity="other">บันทึกไว้ %1$d แห่ง · ลากขึ้นเพื่อดูทั้งหมด</item>
+    </plurals>
+    <string name="fav_save">บันทึกในรายการโปรด</string>
+    <string name="fav_save_title">บันทึกรายการโปรด</string>
+    <string name="fav_name_label">ชื่อ</string>
+    <!-- %1$s = favorite name -->
+    <string name="fav_saved">บันทึก \"%1$s\" แล้ว</string>
+    <string name="fav_deleted">ลบ \"%1$s\" แล้ว</string>
+    <string name="fav_undo">เลิกทำ</string>
+    <string name="fav_start_now">จำลองเลย</string>
+    <string name="fav_delete">ลบ</string>
+
+    <!-- setup -->
+    <string name="setup_title">ตั้งค่าเริ่มต้น</string>
+    <string name="setup_intro">Android อนุญาตให้แอปจำลองตำแหน่งได้ก็ต่อเมื่อคุณเลือกแอปนั้นในตัวเลือกสำหรับนักพัฒนาแอป ทำเพียงครั้งเดียวเท่านั้น</string>
+    <!-- %1$s = step title -->
+    <string name="setup_step_optional">%1$s (ไม่บังคับ)</string>
+    <string name="setup_done">เสร็จสิ้น</string>
+    <string name="setup_step1_title">เปิดตัวเลือกสำหรับนักพัฒนาแอป</string>
+    <string name="setup_step1_body">การตั้งค่า → เกี่ยวกับโทรศัพท์ → ข้อมูลซอฟต์แวร์ → แตะ \"หมายเลขบิลด์\" 7 ครั้ง</string>
+    <string name="setup_step1_action">เปิดเกี่ยวกับโทรศัพท์</string>
+    <string name="setup_step2_title">เลือก MockGPS เป็นแอปตำแหน่งจำลอง</string>
+    <string name="setup_step2_body">ในตัวเลือกสำหรับนักพัฒนาแอป ให้หา \"เลือกแอปตำแหน่งจำลอง\" แล้วเลือก MockGPS</string>
+    <string name="setup_step2_action">เปิดตัวเลือกสำหรับนักพัฒนาแอป</string>
+    <string name="setup_step3_title">อนุญาตตำแหน่งและการแจ้งเตือน</string>
+    <string name="setup_step3_body">สิทธิ์ตำแหน่งช่วยให้ MockGPS จำลองแหล่ง Fused ที่แอปส่วนใหญ่ใช้ได้ด้วย ส่วนการแจ้งเตือนจะแสดงสถานะและปุ่มหยุด</string>
+    <string name="setup_step3_action">ให้สิทธิ์</string>
+    <string name="setup_step3_secondary">การตั้งค่าแอป</string>
+    <string name="setup_step4_title">แสดงทับแอปอื่น</string>
+    <string name="setup_step4_body">ต้องใช้เฉพาะเมื่อคุณใช้จอยสติ๊กลอยเพื่อเคลื่อนที่ขณะเปิดแอปอื่นอยู่</string>
+    <string name="setup_step4_action">เปิดการตั้งค่า</string>
+    <string name="setup_step5_title">แบตเตอรี่ไม่จำกัด</string>
+    <string name="setup_step5_body">แนะนำสำหรับ Samsung, Xiaomi และ Oppo เพื่อไม่ให้ระบบหยุดการจำลองหลังจากปิดหน้าจอไว้นาน</string>
+    <string name="setup_step5_action">เปิดการตั้งค่าแบตเตอรี่</string>
+    <string name="setup_quick_title">ตั้งค่าด่วนด้วย adb</string>
+    <string name="setup_quick_body">ข้ามขั้นตอนที่ 2 และ 3 ได้เมื่อเชื่อมต่อโทรศัพท์ด้วยสายดีบัก:</string>
+    <string name="setup_start">เริ่มต้นใช้งาน</string>
+    <string name="setup_finish_steps">ทำขั้นตอนที่ 2 และ 3 ให้เสร็จเพื่อไปต่อ</string>
+    <string name="setup_later">ภายหลัง</string>
+
+    <!-- settings -->
+    <string name="settings_title">การตั้งค่า</string>
+    <string name="settings_running_note">การเปลี่ยนสัญญาณและแหล่งตำแหน่งจะมีผลในครั้งถัดไปที่เริ่มจำลอง</string>
+    <string name="settings_section_signal">สัญญาณจำลอง</string>
+    <string name="settings_accuracy">ความแม่นยำ: %1$d m</string>
+    <string name="settings_altitude">ระดับความสูง: %1$d m</string>
+    <string name="settings_jitter_title">การสั่นไหวตามธรรมชาติ</string>
+    <string name="settings_jitter_desc">เพิ่มค่าคลาดเคลื่อนไม่กี่เมตรเหมือนตัวรับสัญญาณ GPS จริง</string>
+    <string name="settings_interval">ความถี่ในการอัปเดต</string>
+    <string name="settings_interval_500ms">0.5 วินาที</string>
+    <string name="settings_interval_1s">1 วินาที</string>
+    <string name="settings_interval_2s">2 วินาที</string>
+    <string name="settings_interval_5s">5 วินาที</string>
+    <string name="settings_section_sources">แหล่งตำแหน่งที่จะจำลอง</string>
+    <string name="settings_source_network">เครือข่าย</string>
+    <string name="settings_source_fused_desc">แหล่ง Fused ของ Android และ Google Play services (FusedLocationProviderClient)</string>
+    <string name="settings_section_joystick">จอยสติ๊ก</string>
+    <string name="settings_joystick_speed">ความเร็วเริ่มต้น</string>
+    <string name="settings_speed_kmh">%1$d km/h</string>
+    <string name="settings_section_language">ภาษา</string>
+    <string name="settings_app_language">ภาษาของแอป</string>
+    <string name="settings_section_map">แผนที่</string>
+    <string name="settings_theme_auto">ตามระบบ</string>
+    <string name="settings_theme_light">สว่าง</string>
+    <string name="settings_theme_dark">มืด</string>
+    <string name="settings_section_routing">เซิร์ฟเวอร์ค้นหาเส้นทาง (OSRM)</string>
+    <string name="settings_routing_desc">ค่าเริ่มต้นใช้เซิร์ฟเวอร์สาธารณะของ FOSSGIS (สูงสุด 1 คำขอต่อวินาที) คุณสามารถชี้ไปที่เซิร์ฟเวอร์ OSRM ของคุณเองได้ โดย {profile} จะถูกแทนที่ด้วย foot, bike หรือ car</string>
+    <string name="settings_routing_reset">คืนค่าเริ่มต้น</string>
+
+    <!-- adb screen -->
+    <string name="adb_title">ควบคุมด้วย adb</string>
+    <string name="adb_intro">สั่งการได้ทุกอย่างจากคอมพิวเตอร์ สะดวกสำหรับการทดสอบอัตโนมัติ บริการนี้ต้องใช้สิทธิ์ android.permission.DUMP จึงมีเพียงแอปนี้และ adb shell เท่านั้นที่ควบคุมได้ แอปอื่นควบคุมไม่ได้</string>
+    <string name="adb_section_point">อยู่กับที่ที่จุดเดียว</string>
+    <string name="adb_alt_hint" tools:ignore="TypographyDashes">เพิ่ม --es alt 25 เพื่อกำหนดระดับความสูง (m)</string>
+    <string name="adb_section_query">ตามที่อยู่หรือลิงก์ Google Maps</string>
+    <string name="adb_section_fav">รายการโปรดที่บันทึกไว้</string>
+    <string name="adb_section_route">เดินตามเส้นทาง</string>
+    <string name="adb_route_params">by: road (ตามถนน) หรือเว้นว่างไว้เพื่อเชื่อมจุดด้วยเส้นตรง · travel: foot, bike, motorbike, car · end: stop, loop, pingpong · speed: km/h</string>
+    <string name="adb_section_controls">ควบคุม</string>
+    <string name="adb_section_check">ตรวจสอบตำแหน่งที่ระบบได้รับ</string>
+
+    <!-- about screen -->
+    <string name="about_title">เกี่ยวกับ</string>
+    <!-- %1$s = version name -->
+    <string name="about_app_version">MockGPS %1$s</string>
+    <string name="about_description">เครื่องมือจำลองตำแหน่งสำหรับนักพัฒนาและผู้ทดสอบ ใช้ทดสอบฟีเจอร์ที่อิงตามตำแหน่ง พัฒนาโดย DSAI (dsai.vn)</string>
+    <string name="about_section_notes">หมายเหตุการใช้งาน</string>
+    <string name="about_notes">Android จะระบุตำแหน่งที่จำลองว่าเป็นตำแหน่งจำลองเสมอ (Location.isMock) แอปที่ตรวจสอบจึงจะรู้ได้ โปรดใช้เพื่อทดสอบแอปของคุณเองเท่านั้น ห้ามใช้เพื่อโกงหรือละเมิดข้อกำหนดของบริการอื่น</string>
+    <string name="about_section_privacy">ความเป็นส่วนตัว</string>
+    <string name="about_privacy">ไม่มีโฆษณา ไม่มีการวิเคราะห์ ไม่มีบัญชี และไม่มีเซิร์ฟเวอร์ของเราเอง รายการโปรดและการตั้งค่าจะเก็บไว้ในอุปกรณ์ของคุณเท่านั้น เมื่อคุณค้นหา วางแผนเส้นทาง หรือดูแผนที่ ข้อความที่ค้นหาและพิกัดที่เกี่ยวข้องจะถูกส่งตรงไปยังบริการที่ระบุไว้ด้านล่าง</string>
+    <string name="about_privacy_policy">นโยบายความเป็นส่วนตัว</string>
+    <string name="about_section_third_party">บริการและข้อมูลของบุคคลที่สาม</string>
+    <string name="about_third_party">• แผนที่: OpenFreeMap ข้อมูล © OpenMapTiles © OpenStreetMap contributors (ODbL)\n• ค้นหาที่อยู่: Android Geocoder (Google), Photon (komoot), Nominatim (OpenStreetMap)\n• ค้นหาเส้นทาง: OSRM ที่ routing.openstreetmap.de (FOSSGIS)\n• ไลบรารี: MapLibre Native (BSD-2-Clause), AndroidX, Jetpack Compose, Google Play services Location</string>
+    <string name="about_osm_copyright">ลิขสิทธิ์ OpenStreetMap</string>
+</resources>

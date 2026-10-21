@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- common -->
+    <string name="common_back">Назад</string>
+    <string name="common_save">Сохранить</string>
+    <string name="common_cancel">Отмена</string>
+    <string name="common_stop">Остановить</string>
+    <string name="common_pause">Пауза</string>
+    <string name="common_resume">Продолжить</string>
+    <string name="common_copied">Скопировано</string>
+    <string name="common_copy_command">Копировать команду</string>
+    <!-- Status texts shared by the map card and the notification -->
+    <string name="common_arrived">Вы прибыли в пункт назначения</string>
+    <string name="common_route_paused">Маршрут приостановлен</string>
+    <string name="common_following_route">По маршруту · %1$d км/ч</string>
+    <string name="common_mocking">Имитация местоположения</string>
+
+    <!-- durations: %1$d = minutes, or hours and minutes -->
+    <string name="duration_minutes">%1$d мин</string>
+    <string name="duration_hours_minutes">%1$d ч %2$d мин</string>
+
+    <!-- notification -->
+    <string name="notif_channel_name">Имитация местоположения</string>
+    <string name="notif_preparing">Подготовка…</string>
+    <string name="notif_moving_joystick">Движение с помощью джойстика</string>
+    <!-- %1$s = coordinates, %2$s = distance covered, %3$s = total distance -->
+    <string name="notif_route_text">%1$s · %2$s / %3$s</string>
+    <string name="notif_action_joystick">Джойстик</string>
+    <string name="notif_action_hide_joystick">Скрыть джойстик</string>
+
+    <!-- joystick overlay -->
+    <string name="joystick_run">Бег</string>
+    <string name="joystick_speed">Скорость</string>
+    <!-- %1$s = speed name, %2$d = speed in km/h -->
+    <string name="joystick_speed_label">%1$s %2$d км/ч</string>
+
+    <!-- errors and toasts from the service and the network layer -->
+    <string name="error_no_favorite">Нет избранного места с названием «%1$s»</string>
+    <!-- %1$s = query, %2$s = reason -->
+    <string name="error_search_failed">Не удалось найти «%1$s»: %2$s</string>
+    <string name="error_detail_no_results">нет результатов</string>
+    <string name="error_missing_coordinates">Не указаны координаты</string>
+    <string name="error_no_route">Маршрута пока нет</string>
+    <string name="error_route_min_points">Для маршрута нужно минимум 2 точки</string>
+    <string name="error_route_too_short">Маршрут слишком короткий</string>
+    <!-- %1$s = reason -->
+    <string name="error_route_failed">Не удалось построить маршрут: %1$s</string>
+    <string name="error_detail_route_too_short">маршрут слишком короткий</string>
+    <string name="error_detail_route_not_found">маршрут не найден</string>
+    <string name="error_detail_server_busy">сервер перегружен, повторите попытку позже</string>
+    <string name="error_detail_network">ошибка сети</string>
+    <string name="error_no_start_position">Пока нет начальной позиции</string>
+    <string name="error_invalid_coordinates">Некорректные координаты</string>
+    <string name="error_not_mock_app">Приложение MockGPS не выбрано как «приложение для фиктивных местоположений» в разделе «Для разработчиков»</string>
+    <string name="error_no_source">В настройках не включён ни один источник местоположения</string>
+    <string name="error_mock_app_lost">MockGPS больше не выбрано приложением для фиктивных местоположений</string>
+    <!-- %1$s = reason -->
+    <string name="error_foreground_failed">Не удалось запустить фоновую службу: %1$s</string>
+    <string name="error_overlay_permission">Для джойстика нужно разрешение «Поверх других приложений»</string>
+
+    <!-- map: search bar, menu, status cards -->
+    <string name="map_search_hint">Адрес, координаты или ссылка Google Maps</string>
+    <string name="map_search_clear">Очистить</string>
+    <string name="map_menu">Меню</string>
+    <string name="map_menu_about">О приложении и конфиденциальность</string>
+    <string name="map_my_location">К текущему местоположению</string>
+    <string name="map_result_coordinates">Координаты</string>
+    <!-- %1$s = error message -->
+    <string name="map_search_error">Ошибка поиска: %1$s</string>
+    <string name="map_no_results">Ничего не найдено</string>
+    <string name="map_running_moving">Движение · %1$d км/ч</string>
+    <string name="map_no_location_permission">Нет разрешения на местоположение: можно имитировать только GPS и сеть</string>
+    <string name="map_setup_incomplete_title">Настройка не завершена</string>
+    <string name="map_setup_incomplete_body">Нажмите, чтобы увидеть оставшиеся шаги</string>
+
+    <!-- sheet: panes and point -->
+    <string name="sheet_pane_point">Точка</string>
+    <string name="sheet_pane_route">Маршрут</string>
+    <string name="sheet_pane_fav">Избранное</string>
+    <string name="sheet_hint_select_point">Нажмите и удерживайте карту или воспользуйтесь поиском, чтобы выбрать точку</string>
+    <string name="sheet_selected_point">Выбранная точка</string>
+    <string name="sheet_copy_coordinates">Копировать координаты</string>
+    <string name="sheet_teleport_here">Телепортироваться сюда</string>
+    <string name="sheet_start_mock">Начать имитацию</string>
+    <string name="sheet_joystick_title">Плавающий джойстик</string>
+    <string name="sheet_joystick_desc">Двигайтесь поверх других приложений во время имитации</string>
+    <string name="sheet_joystick_permission">Разрешите MockGPS отображаться поверх других приложений и включите это снова</string>
+    <string name="sheet_search_hint">В строке поиска можно ввести координаты, например «10.7769, 106.7009», адрес или ссылку Google Maps. Также можно поделиться местом из Google Maps с MockGPS.</string>
+
+    <!-- route -->
+    <string name="route_gpx_too_few_points">В файле GPX недостаточно точек</string>
+    <!-- %1$s = error message -->
+    <string name="route_gpx_read_error">Не удалось прочитать GPX: %1$s</string>
+    <string name="route_running">Маршрут выполняется</string>
+    <string name="route_finding">Построение маршрута…</string>
+    <plurals name="route_gpx_points">
+        <item quantity="one">Файл GPX · %1$d точка</item>
+        <item quantity="few">Файл GPX · %1$d точки</item>
+        <item quantity="many">Файл GPX · %1$d точек</item>
+        <item quantity="other">Файл GPX · %1$d точки</item>
+    </plurals>
+    <plurals name="route_point_count">
+        <item quantity="one">%1$d точка</item>
+        <item quantity="few">%1$d точки</item>
+        <item quantity="many">%1$d точек</item>
+        <item quantity="other">%1$d точки</item>
+    </plurals>
+    <string name="route_hint_add_points">Нажмите и удерживайте карту, чтобы добавить точки</string>
+    <string name="route_need_one_more">Добавьте ещё хотя бы одну точку</string>
+    <string name="route_error_straight">Не удалось построить маршрут, пока используются прямые линии</string>
+    <!-- %1$s = distance, %2$s = duration, %3$d = speed in km/h -->
+    <string name="route_estimate">%1$s · около %2$s на скорости %3$d км/ч</string>
+    <string name="route_or_open_gpx">или откройте файл GPX</string>
+    <!-- %1$s = distance covered, %2$s = total distance -->
+    <string name="route_progress">%1$s / %2$s</string>
+    <!-- %3$s = estimated time left -->
+    <string name="route_progress_eta">%1$s / %2$s · осталось %3$s</string>
+    <string name="route_undo">Удалить последнюю точку</string>
+    <string name="route_clear">Очистить маршрут</string>
+    <string name="route_open_gpx">Открыть файл GPX</string>
+    <string name="route_restart">Запустить снова</string>
+    <string name="route_start">Начать маршрут</string>
+    <string name="route_travel_title">Способ передвижения</string>
+    <string name="route_travel_foot">Пешком</string>
+    <string name="route_travel_bike">Велосипед</string>
+    <string name="route_travel_motorbike">Мотоцикл</string>
+    <string name="route_travel_car">Автомобиль</string>
+    <!-- %1$s = travel mode, %2$d = default speed in km/h -->
+    <string name="route_travel_chip">%1$s · %2$d</string>
+    <string name="route_connect_title">Соединение точек</string>
+    <string name="route_connect_road">По дорогам</string>
+    <string name="route_connect_straight">Прямая линия</string>
+    <string name="route_speed">Скорость: %1$d км/ч</string>
+    <string name="route_end_title">В конце маршрута</string>
+    <string name="route_end_stop">Остановиться</string>
+    <string name="route_end_loop">Повторять</string>
+    <string name="route_end_pingpong">Туда и обратно</string>
+
+    <!-- favorites -->
+    <string name="fav_hint_empty">Выберите точку и нажмите ☆, чтобы сохранить её здесь</string>
+    <plurals name="fav_saved_count">
+        <item quantity="one">%1$d сохранённое место · потяните вверх, чтобы увидеть все</item>
+        <item quantity="few">%1$d сохранённых места · потяните вверх, чтобы увидеть все</item>
+        <item quantity="many">%1$d сохранённых мест · потяните вверх, чтобы увидеть все</item>
+        <item quantity="other">%1$d сохранённого места · потяните вверх, чтобы увидеть все</item>
+    </plurals>
+    <string name="fav_save">Сохранить в избранное</string>
+    <string name="fav_save_title">Сохранить место</string>
+    <string name="fav_name_label">Название</string>
+    <!-- %1$s = favorite name -->
+    <string name="fav_saved">Сохранено: «%1$s»</string>
+    <string name="fav_deleted">Удалено: «%1$s»</string>
+    <string name="fav_undo">Отменить</string>
+    <string name="fav_start_now">Имитировать сейчас</string>
+    <string name="fav_delete">Удалить</string>
+
+    <!-- setup -->
+    <string name="setup_title">Настройка</string>
+    <string name="setup_intro">Android позволяет приложению имитировать местоположение, только если вы выбрали его в разделе «Для разработчиков». Это нужно сделать всего один раз.</string>
+    <!-- %1$s = step title -->
+    <string name="setup_step_optional">%1$s (необязательно)</string>
+    <string name="setup_done">Готово</string>
+    <string name="setup_step1_title">Включите раздел «Для разработчиков»</string>
+    <string name="setup_step1_body">Настройки → О телефоне → Сведения о ПО → 7 раз нажмите «Номер сборки».</string>
+    <string name="setup_step1_action">Открыть «О телефоне»</string>
+    <string name="setup_step2_title">Выберите MockGPS приложением для фиктивных местоположений</string>
+    <string name="setup_step2_body">В разделе «Для разработчиков» найдите пункт «Выбрать приложение для фиктивных местоположений» и выберите MockGPS.</string>
+    <string name="setup_step2_action">Открыть «Для разработчиков»</string>
+    <string name="setup_step3_title">Разрешите доступ к местоположению и уведомления</string>
+    <string name="setup_step3_body">Доступ к местоположению позволяет MockGPS имитировать и источник fused, который используют большинство приложений. Уведомления показывают статус и кнопку «Остановить».</string>
+    <string name="setup_step3_action">Выдать разрешения</string>
+    <string name="setup_step3_secondary">Настройки приложения</string>
+    <string name="setup_step4_title">Поверх других приложений</string>
+    <string name="setup_step4_body">Нужно только если вы используете плавающий джойстик, чтобы двигаться при открытом другом приложении.</string>
+    <string name="setup_step4_action">Открыть настройки</string>
+    <string name="setup_step5_title">Батарея без ограничений</string>
+    <string name="setup_step5_body">Рекомендуется на Samsung, Xiaomi и Oppo, чтобы система не останавливала имитацию, когда экран долго выключен.</string>
+    <string name="setup_step5_action">Открыть настройки батареи</string>
+    <string name="setup_quick_title">Быстрая настройка через adb</string>
+    <string name="setup_quick_body">Пропустите шаги 2 и 3, если телефон подключён кабелем для отладки:</string>
+    <string name="setup_start">Начать</string>
+    <string name="setup_finish_steps">Выполните шаги 2 и 3, чтобы продолжить</string>
+    <string name="setup_later">Позже</string>
+
+    <!-- settings -->
+    <string name="settings_title">Настройки</string>
+    <string name="settings_running_note">Изменения сигнала и источников местоположения применяются при следующем запуске имитации.</string>
+    <string name="settings_section_signal">Имитируемый сигнал</string>
+    <string name="settings_accuracy">Точность: %1$d m</string>
+    <string name="settings_altitude">Высота: %1$d m</string>
+    <string name="settings_jitter_title">Естественный разброс</string>
+    <string name="settings_jitter_desc">Добавляет погрешность в несколько метров, как у настоящего GPS-приёмника</string>
+    <string name="settings_interval">Частота обновления</string>
+    <string name="settings_interval_500ms">0,5 с</string>
+    <string name="settings_interval_1s">1 с</string>
+    <string name="settings_interval_2s">2 с</string>
+    <string name="settings_interval_5s">5 с</string>
+    <string name="settings_section_sources">Имитируемые источники местоположения</string>
+    <string name="settings_source_network">Сеть</string>
+    <string name="settings_source_fused_desc">Источник fused в Android и Google Play services (FusedLocationProviderClient)</string>
+    <string name="settings_section_joystick">Джойстик</string>
+    <string name="settings_joystick_speed">Скорость по умолчанию</string>
+    <string name="settings_speed_kmh">%1$d км/ч</string>
+    <string name="settings_section_language">Язык</string>
+    <string name="settings_app_language">Язык приложения</string>
+    <string name="settings_section_map">Карта</string>
+    <string name="settings_theme_auto">Как в системе</string>
+    <string name="settings_theme_light">Светлая</string>
+    <string name="settings_theme_dark">Тёмная</string>
+    <string name="settings_section_routing">Сервер маршрутов (OSRM)</string>
+    <string name="settings_routing_desc">По умолчанию используется публичный сервер FOSSGIS (не более 1 запроса в секунду). Можно указать собственный сервер OSRM; {profile} заменяется на foot, bike или car.</string>
+    <string name="settings_routing_reset">Вернуть значение по умолчанию</string>
+
+    <!-- adb screen -->
+    <string name="adb_title">Управление через adb</string>
+    <string name="adb_intro">Всё можно запускать с компьютера, что удобно для автоматических тестов. Служба требует разрешение android.permission.DUMP, поэтому управлять ею могут только это приложение и adb shell; другие приложения не могут.</string>
+    <string name="adb_section_point">Оставаться в одной точке</string>
+    <string name="adb_alt_hint" tools:ignore="TypographyDashes">Добавьте --es alt 25, чтобы задать высоту (m).</string>
+    <string name="adb_section_query">По адресу или ссылке Google Maps</string>
+    <string name="adb_section_fav">Сохранённое избранное</string>
+    <string name="adb_section_route">Движение по маршруту</string>
+    <string name="adb_route_params">by: road (по дорогам) или оставьте пустым, чтобы соединять точки прямой линией · travel: foot, bike, motorbike, car · end: stop, loop, pingpong · speed: км/ч.</string>
+    <string name="adb_section_controls">Управление</string>
+    <string name="adb_section_check">Проверка местоположения, которое получает система</string>
+
+    <!-- about screen -->
+    <string name="about_title">О приложении</string>
+    <!-- %1$s = version name -->
+    <string name="about_app_version">MockGPS %1$s</string>
+    <string name="about_description">Инструмент имитации местоположения для разработчиков и тестировщиков, позволяющий проверять функции, зависящие от местоположения. Разработано DSAI (dsai.vn).</string>
+    <string name="about_section_notes">Примечания по использованию</string>
+    <string name="about_notes">Имитируемые местоположения всегда помечаются Android как mock (Location.isMock), поэтому приложения, которые это проверяют, заметят подмену. Используйте только для тестирования собственных приложений. Не используйте для обмана и нарушения условий других сервисов.</string>
+    <string name="about_section_privacy">Конфиденциальность</string>
+    <string name="about_privacy">Без рекламы, без аналитики, без учётных записей и без собственного сервера. Избранное и настройки хранятся только на вашем устройстве. Когда вы ищете, строите маршрут или просматриваете карту, текст поиска и связанные координаты отправляются напрямую сервисам, перечисленным ниже.</string>
+    <string name="about_privacy_policy">Политика конфиденциальности</string>
+    <string name="about_section_third_party">Сторонние сервисы и данные</string>
+    <string name="about_third_party">• Карта: OpenFreeMap, данные © OpenMapTiles © OpenStreetMap contributors (ODbL)\n• Поиск адресов: Android Geocoder (Google), Photon (komoot), Nominatim (OpenStreetMap)\n• Маршруты: OSRM на routing.openstreetmap.de (FOSSGIS)\n• Библиотеки: MapLibre Native (BSD-2-Clause), AndroidX, Jetpack Compose, Google Play services Location</string>
+    <string name="about_osm_copyright">Авторские права OpenStreetMap</string>
+</resources>

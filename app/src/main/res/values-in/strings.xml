@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- common -->
+    <string name="common_back">Kembali</string>
+    <string name="common_save">Simpan</string>
+    <string name="common_cancel">Batal</string>
+    <string name="common_stop">Hentikan</string>
+    <string name="common_pause">Jeda</string>
+    <string name="common_resume">Lanjutkan</string>
+    <string name="common_copied">Disalin</string>
+    <string name="common_copy_command">Salin perintah</string>
+    <!-- Status texts shared by the map card and the notification -->
+    <string name="common_arrived">Tiba di tujuan</string>
+    <string name="common_route_paused">Rute dijeda</string>
+    <string name="common_following_route">Mengikuti rute · %1$d km/h</string>
+    <string name="common_mocking">Menyimulasikan lokasi</string>
+
+    <!-- durations: %1$d = minutes, or hours and minutes -->
+    <string name="duration_minutes">%1$d mnt</string>
+    <string name="duration_hours_minutes">%1$d jam %2$d mnt</string>
+
+    <!-- notification -->
+    <string name="notif_channel_name">Simulasi lokasi</string>
+    <string name="notif_preparing">Menyiapkan…</string>
+    <string name="notif_moving_joystick">Bergerak dengan joystick</string>
+    <!-- %1$s = coordinates, %2$s = distance covered, %3$s = total distance -->
+    <string name="notif_route_text">%1$s · %2$s / %3$s</string>
+    <string name="notif_action_joystick">Joystick</string>
+    <string name="notif_action_hide_joystick">Sembunyikan joystick</string>
+
+    <!-- joystick overlay -->
+    <string name="joystick_run">Berlari</string>
+    <string name="joystick_speed">Kecepatan</string>
+    <!-- %1$s = speed name, %2$d = speed in km/h -->
+    <string name="joystick_speed_label">%1$s %2$d km/h</string>
+
+    <!-- errors and toasts from the service and the network layer -->
+    <string name="error_no_favorite">Tidak ada favorit bernama \"%1$s\"</string>
+    <!-- %1$s = query, %2$s = reason -->
+    <string name="error_search_failed">Tidak dapat menemukan \"%1$s\": %2$s</string>
+    <string name="error_detail_no_results">tidak ada hasil</string>
+    <string name="error_missing_coordinates">Koordinat tidak ada</string>
+    <string name="error_no_route">Belum ada rute</string>
+    <string name="error_route_min_points">Rute membutuhkan minimal 2 titik</string>
+    <string name="error_route_too_short">Rute terlalu pendek</string>
+    <!-- %1$s = reason -->
+    <string name="error_route_failed">Tidak dapat menemukan rute: %1$s</string>
+    <string name="error_detail_route_too_short">rute terlalu pendek</string>
+    <string name="error_detail_route_not_found">rute tidak ditemukan</string>
+    <string name="error_detail_server_busy">server kelebihan beban, coba lagi nanti</string>
+    <string name="error_detail_network">kesalahan jaringan</string>
+    <string name="error_no_start_position">Belum ada posisi awal</string>
+    <string name="error_invalid_coordinates">Koordinat tidak valid</string>
+    <string name="error_not_mock_app">MockGPS belum dipilih sebagai \"aplikasi lokasi palsu\" di Opsi developer</string>
+    <string name="error_no_source">Tidak ada sumber lokasi yang aktif di Pengaturan</string>
+    <string name="error_mock_app_lost">MockGPS tidak lagi menjadi aplikasi lokasi palsu</string>
+    <!-- %1$s = reason -->
+    <string name="error_foreground_failed">Tidak dapat memulai layanan latar belakang: %1$s</string>
+    <string name="error_overlay_permission">Joystick memerlukan izin \"Tampilkan di atas aplikasi lain\"</string>
+
+    <!-- map: search bar, menu, status cards -->
+    <string name="map_search_hint">Alamat, koordinat, atau tautan Google Maps</string>
+    <string name="map_search_clear">Hapus</string>
+    <string name="map_menu">Menu</string>
+    <string name="map_menu_about">Tentang &amp; privasi</string>
+    <string name="map_my_location">Ke lokasi saat ini</string>
+    <string name="map_result_coordinates">Koordinat</string>
+    <!-- %1$s = error message -->
+    <string name="map_search_error">Kesalahan pencarian: %1$s</string>
+    <string name="map_no_results">Hasil tidak ditemukan</string>
+    <string name="map_running_moving">Bergerak · %1$d km/h</string>
+    <string name="map_no_location_permission">Izin lokasi belum diberikan: hanya GPS dan jaringan yang dapat disimulasikan</string>
+    <string name="map_setup_incomplete_title">Penyiapan belum selesai</string>
+    <string name="map_setup_incomplete_body">Ketuk untuk melihat langkah yang tersisa</string>
+
+    <!-- sheet: panes and point -->
+    <string name="sheet_pane_point">Titik</string>
+    <string name="sheet_pane_route">Rute</string>
+    <string name="sheet_pane_fav">Favorit</string>
+    <string name="sheet_hint_select_point">Tekan lama peta atau cari untuk memilih titik</string>
+    <string name="sheet_selected_point">Titik terpilih</string>
+    <string name="sheet_copy_coordinates">Salin koordinat</string>
+    <string name="sheet_teleport_here">Teleportasi ke sini</string>
+    <string name="sheet_start_mock">Mulai simulasi</string>
+    <string name="sheet_joystick_title">Joystick mengambang</string>
+    <string name="sheet_joystick_desc">Bergerak langsung di atas aplikasi lain saat simulasi berjalan</string>
+    <string name="sheet_joystick_permission">Izinkan MockGPS tampil di atas aplikasi lain, lalu aktifkan lagi</string>
+    <string name="sheet_search_hint">Kotak pencarian menerima koordinat seperti \"10.7769, 106.7009\", alamat, atau tautan Google Maps. Anda juga dapat membagikan tempat dari Google Maps ke MockGPS.</string>
+
+    <!-- route -->
+    <string name="route_gpx_too_few_points">File GPX tidak memiliki cukup titik</string>
+    <!-- %1$s = error message -->
+    <string name="route_gpx_read_error">Tidak dapat membaca GPX: %1$s</string>
+    <string name="route_running">Rute berjalan</string>
+    <string name="route_finding">Mencari rute…</string>
+    <plurals name="route_gpx_points">
+        <item quantity="other">File GPX · %1$d titik</item>
+    </plurals>
+    <plurals name="route_point_count">
+        <item quantity="other">%1$d titik</item>
+    </plurals>
+    <string name="route_hint_add_points">Tekan lama peta untuk menambah titik</string>
+    <string name="route_need_one_more">Tambahkan setidaknya satu titik lagi</string>
+    <string name="route_error_straight">Tidak dapat menemukan rute, sementara memakai garis lurus</string>
+    <!-- %1$s = distance, %2$s = duration, %3$d = speed in km/h -->
+    <string name="route_estimate">%1$s · sekitar %2$s pada %3$d km/h</string>
+    <string name="route_or_open_gpx">atau buka file GPX</string>
+    <!-- %1$s = distance covered, %2$s = total distance -->
+    <string name="route_progress">%1$s / %2$s</string>
+    <!-- %3$s = estimated time left -->
+    <string name="route_progress_eta">%1$s / %2$s · sisa %3$s</string>
+    <string name="route_undo">Hapus titik terakhir</string>
+    <string name="route_clear">Hapus rute</string>
+    <string name="route_open_gpx">Buka file GPX</string>
+    <string name="route_restart">Jalankan lagi</string>
+    <string name="route_start">Mulai rute</string>
+    <string name="route_travel_title">Moda perjalanan</string>
+    <string name="route_travel_foot">Jalan kaki</string>
+    <string name="route_travel_bike">Sepeda</string>
+    <string name="route_travel_motorbike">Sepeda motor</string>
+    <string name="route_travel_car">Mobil</string>
+    <!-- %1$s = travel mode, %2$d = default speed in km/h -->
+    <string name="route_travel_chip">%1$s · %2$d</string>
+    <string name="route_connect_title">Hubungkan titik</string>
+    <string name="route_connect_road">Mengikuti jalan</string>
+    <string name="route_connect_straight">Garis lurus</string>
+    <string name="route_speed">Kecepatan: %1$d km/h</string>
+    <string name="route_end_title">Di tujuan</string>
+    <string name="route_end_stop">Berhenti</string>
+    <string name="route_end_loop">Ulangi</string>
+    <string name="route_end_pingpong">Bolak-balik</string>
+
+    <!-- favorites -->
+    <string name="fav_hint_empty">Pilih titik, lalu ketuk ☆ untuk menyimpannya di sini</string>
+    <plurals name="fav_saved_count">
+        <item quantity="other">%1$d tempat tersimpan · geser ke atas untuk melihat semua</item>
+    </plurals>
+    <string name="fav_save">Simpan ke favorit</string>
+    <string name="fav_save_title">Simpan favorit</string>
+    <string name="fav_name_label">Nama</string>
+    <!-- %1$s = favorite name -->
+    <string name="fav_saved">\"%1$s\" disimpan</string>
+    <string name="fav_deleted">\"%1$s\" dihapus</string>
+    <string name="fav_undo">Urungkan</string>
+    <string name="fav_start_now">Simulasikan sekarang</string>
+    <string name="fav_delete">Hapus</string>
+
+    <!-- setup -->
+    <string name="setup_title">Penyiapan</string>
+    <string name="setup_intro">Android hanya mengizinkan aplikasi mensimulasikan lokasi setelah Anda memilihnya di Opsi developer. Anda hanya perlu melakukannya sekali.</string>
+    <!-- %1$s = step title -->
+    <string name="setup_step_optional">%1$s (opsional)</string>
+    <string name="setup_done">Selesai</string>
+    <string name="setup_step1_title">Aktifkan Opsi developer</string>
+    <string name="setup_step1_body">Pengaturan → Tentang ponsel → Informasi perangkat lunak → ketuk \"Nomor build\" 7 kali.</string>
+    <string name="setup_step1_action">Buka Tentang ponsel</string>
+    <string name="setup_step2_title">Pilih MockGPS sebagai aplikasi lokasi palsu</string>
+    <string name="setup_step2_body">Di Opsi developer, cari \"Pilih aplikasi lokasi palsu\" lalu pilih MockGPS.</string>
+    <string name="setup_step2_action">Buka Opsi developer</string>
+    <string name="setup_step3_title">Izinkan lokasi dan notifikasi</string>
+    <string name="setup_step3_body">Izin lokasi memungkinkan MockGPS juga menyimulasikan sumber fused yang dipakai sebagian besar aplikasi. Notifikasi menampilkan status dan tombol Hentikan.</string>
+    <string name="setup_step3_action">Berikan izin</string>
+    <string name="setup_step3_secondary">Pengaturan aplikasi</string>
+    <string name="setup_step4_title">Tampilkan di atas aplikasi lain</string>
+    <string name="setup_step4_body">Hanya diperlukan jika Anda memakai joystick mengambang untuk bergerak saat aplikasi lain terbuka.</string>
+    <string name="setup_step4_action">Buka pengaturan</string>
+    <string name="setup_step5_title">Baterai tanpa batasan</string>
+    <string name="setup_step5_body">Disarankan di Samsung, Xiaomi, dan Oppo agar sistem tidak menghentikan simulasi setelah layar mati dalam waktu lama.</string>
+    <string name="setup_step5_action">Buka pengaturan baterai</string>
+    <string name="setup_quick_title">Penyiapan cepat dengan adb</string>
+    <string name="setup_quick_body">Lewati langkah 2 dan 3 jika ponsel terhubung dengan kabel debug:</string>
+    <string name="setup_start">Mulai</string>
+    <string name="setup_finish_steps">Selesaikan langkah 2 dan 3 untuk melanjutkan</string>
+    <string name="setup_later">Nanti</string>
+
+    <!-- settings -->
+    <string name="settings_title">Pengaturan</string>
+    <string name="settings_running_note">Perubahan pada sinyal dan sumber lokasi berlaku saat Anda memulai simulasi berikutnya.</string>
+    <string name="settings_section_signal">Sinyal simulasi</string>
+    <string name="settings_accuracy">Akurasi: %1$d m</string>
+    <string name="settings_altitude">Ketinggian: %1$d m</string>
+    <string name="settings_jitter_title">Jitter alami</string>
+    <string name="settings_jitter_desc">Menambahkan kesalahan beberapa meter, seperti penerima GPS sungguhan</string>
+    <string name="settings_interval">Frekuensi pembaruan</string>
+    <string name="settings_interval_500ms">0,5 detik</string>
+    <string name="settings_interval_1s">1 detik</string>
+    <string name="settings_interval_2s">2 detik</string>
+    <string name="settings_interval_5s">5 detik</string>
+    <string name="settings_section_sources">Sumber lokasi yang disimulasikan</string>
+    <string name="settings_source_network">Jaringan</string>
+    <string name="settings_source_fused_desc">Sumber fused Android dan Google Play services (FusedLocationProviderClient)</string>
+    <string name="settings_section_joystick">Joystick</string>
+    <string name="settings_joystick_speed">Kecepatan default</string>
+    <string name="settings_speed_kmh">%1$d km/h</string>
+    <string name="settings_section_language">Bahasa</string>
+    <string name="settings_app_language">Bahasa aplikasi</string>
+    <string name="settings_section_map">Peta</string>
+    <string name="settings_theme_auto">Ikuti sistem</string>
+    <string name="settings_theme_light">Terang</string>
+    <string name="settings_theme_dark">Gelap</string>
+    <string name="settings_section_routing">Server rute (OSRM)</string>
+    <string name="settings_routing_desc">Secara default memakai server publik FOSSGIS (maksimal 1 permintaan per detik). Anda dapat mengarahkannya ke server OSRM milik sendiri; {profile} diganti dengan foot, bike, atau car.</string>
+    <string name="settings_routing_reset">Pulihkan default</string>
+
+    <!-- adb screen -->
+    <string name="adb_title">Kontrol dengan adb</string>
+    <string name="adb_intro">Semuanya dapat dipicu dari komputer, berguna untuk pengujian otomatis. Layanan ini mensyaratkan izin android.permission.DUMP, sehingga hanya aplikasi ini dan adb shell yang dapat mengendalikannya; aplikasi lain tidak.</string>
+    <string name="adb_section_point">Diam di satu titik</string>
+    <string name="adb_alt_hint" tools:ignore="TypographyDashes">Tambahkan --es alt 25 untuk mengatur ketinggian (m).</string>
+    <string name="adb_section_query">Berdasarkan alamat atau tautan Google Maps</string>
+    <string name="adb_section_fav">Favorit tersimpan</string>
+    <string name="adb_section_route">Ikuti rute</string>
+    <string name="adb_route_params">by: road (mengikuti jalan) atau kosongkan untuk menghubungkan titik dengan garis lurus · travel: foot, bike, motorbike, car · end: stop, loop, pingpong · speed: km/h.</string>
+    <string name="adb_section_controls">Kontrol</string>
+    <string name="adb_section_check">Periksa lokasi yang diterima sistem</string>
+
+    <!-- about screen -->
+    <string name="about_title">Tentang</string>
+    <!-- %1$s = version name -->
+    <string name="about_app_version">MockGPS %1$s</string>
+    <string name="about_description">Alat simulasi lokasi untuk developer dan penguji guna menguji fitur berbasis lokasi. Dikembangkan oleh DSAI (dsai.vn).</string>
+    <string name="about_section_notes">Catatan penggunaan</string>
+    <string name="about_notes">Lokasi simulasi selalu ditandai sebagai mock oleh Android (Location.isMock), sehingga aplikasi yang memeriksanya akan mengetahuinya. Gunakan hanya untuk menguji aplikasi Anda sendiri. Jangan gunakan untuk berbuat curang atau melanggar ketentuan layanan lain.</string>
+    <string name="about_section_privacy">Privasi</string>
+    <string name="about_privacy">Tanpa iklan, tanpa analitik, tanpa akun, dan tanpa server sendiri. Favorit dan pengaturan hanya disimpan di perangkat Anda. Saat Anda mencari, merencanakan rute, atau melihat peta, teks pencarian dan koordinat terkait dikirim langsung ke layanan yang tercantum di bawah.</string>
+    <string name="about_privacy_policy">Kebijakan privasi</string>
+    <string name="about_section_third_party">Layanan dan data pihak ketiga</string>
+    <string name="about_third_party">• Peta: OpenFreeMap, data © OpenMapTiles © OpenStreetMap contributors (ODbL)\n• Pencarian alamat: Android Geocoder (Google), Photon (komoot), Nominatim (OpenStreetMap)\n• Rute: OSRM di routing.openstreetmap.de (FOSSGIS)\n• Pustaka: MapLibre Native (BSD-2-Clause), AndroidX, Jetpack Compose, Google Play services Location</string>
+    <string name="about_osm_copyright">Hak cipta OpenStreetMap</string>
+</resources>

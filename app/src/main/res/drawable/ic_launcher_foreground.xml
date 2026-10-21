@@ -1,0 +1,26 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Signal rings under the pin tip, kept inside the 66dp safe zone. -->
+    <path
+        android:pathData="M34,66a20,5 0,1 0,40 0a20,5 0,1 0,-40 0"
+        android:strokeWidth="1.6"
+        android:strokeAlpha="0.35"
+        android:strokeColor="#FFFFFFFF" />
+    <path
+        android:pathData="M40.5,66a13.5,3.4 0,1 0,27 0a13.5,3.4 0,1 0,-27 0"
+        android:strokeWidth="1.6"
+        android:strokeAlpha="0.55"
+        android:strokeColor="#FFFFFFFF" />
+    <group
+        android:scaleX="2"
+        android:scaleY="2"
+        android:translateX="30"
+        android:translateY="22">
+        <path
+            android:fillColor="#FFFFFFFF"
+            android:pathData="M12,2C8.13,2 5,5.13 5,9c0,5.25 7,13 7,13s7,-7.75 7,-13c0,-3.87 -3.13,-7 -7,-7zM12,11.5c-1.38,0 -2.5,-1.12 -2.5,-2.5s1.12,-2.5 2.5,-2.5 2.5,1.12 2.5,2.5 -1.12,2.5 -2.5,2.5z" />
+    </group>
+</vector>
