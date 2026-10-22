@@ -64,6 +64,7 @@
     <string name="map_menu">Меню</string>
     <string name="map_menu_about">О приложении и конфиденциальность</string>
     <string name="map_my_location">К текущему местоположению</string>
+    <string name="map_location_unavailable">Не удалось определить текущее местоположение. Проверьте, включена ли геолокация</string>
     <string name="map_result_coordinates">Координаты</string>
     <!-- %1$s = error message -->
     <string name="map_search_error">Ошибка поиска: %1$s</string>

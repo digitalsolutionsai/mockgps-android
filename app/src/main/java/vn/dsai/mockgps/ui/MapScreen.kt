@@ -4,7 +4,9 @@ package vn.dsai.mockgps.ui
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.location.Location
 import android.location.LocationManager
+import android.os.CancellationSignal
 import android.view.HapticFeedbackConstants
 import androidx.annotation.StringRes
 import androidx.activity.compose.BackHandler
@@ -130,6 +132,9 @@ import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.IntOffset
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.viewinterop.AndroidView
+import androidx.core.content.ContextCompat
+import androidx.core.location.LocationCompat
+import androidx.core.location.LocationManagerCompat
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleEventObserver
 import androidx.lifecycle.compose.LifecycleEventEffect
@@ -139,8 +144,12 @@ import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.channelFlow
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.suspendCancellableCoroutine
 import kotlinx.coroutines.withContext
+import kotlinx.coroutines.withTimeoutOrNull
 import vn.dsai.mockgps.Favorite
 import vn.dsai.mockgps.Geo
 import vn.dsai.mockgps.Gpx
@@ -158,6 +167,7 @@ import vn.dsai.mockgps.R
 import vn.dsai.mockgps.Route
 import vn.dsai.mockgps.RouteEnd
 import vn.dsai.mockgps.Travel
+import kotlin.coroutines.resume
 import kotlin.math.roundToInt
 
 enum class Screen { MAP, SETUP, SETTINGS, ADB, ABOUT }
@@ -234,6 +244,8 @@ private fun MapScreen(incoming: MutableStateFlow<String?>, darkMap: Boolean, act
     var favorites by remember { mutableStateOf(prefs.favorites) }
     var joystickPref by remember { mutableStateOf(prefs.joystickEnabled) }
     var follow by remember { mutableStateOf(true) }
+    var here by remember { mutableStateOf<Location?>(null) }
+    var centerOnHere by remember { mutableStateOf(false) }
     var query by rememberSaveable { mutableStateOf("") }
     var results by remember { mutableStateOf<List<Place>>(emptyList()) }
     var searching by remember { mutableStateOf(false) }
@@ -270,6 +282,7 @@ private fun MapScreen(incoming: MutableStateFlow<String?>, darkMap: Boolean, act
             lifecycle.removeObserver(observer)
             if (lifecycle.currentState.isAtLeast(Lifecycle.State.RESUMED)) map.view.onPause()
             if (lifecycle.currentState.isAtLeast(Lifecycle.State.STARTED)) map.view.onStop()
+            map.onDestroy()
             map.view.onDestroy()
         }
     }
@@ -279,7 +292,7 @@ private fun MapScreen(incoming: MutableStateFlow<String?>, darkMap: Boolean, act
         when {
             running != null -> map.jumpTo(running, 15.0)
             saved != null -> map.jumpTo(LatLng(saved.first, saved.second), saved.third)
-            else -> (selection ?: lastKnown(ctx))?.let { map.jumpTo(it, 15.0) } ?: map.jumpTo(LatLng(16.0, 106.0), 4.5)
+            else -> (selection ?: lastKnown(ctx)?.latLng())?.let { map.jumpTo(it, 15.0) } ?: map.jumpTo(LatLng(16.0, 106.0), 4.5)
         }
     }
     // Keep the camera's focus inside the part of the map not covered by the search bar and the sheet.
@@ -307,6 +320,32 @@ private fun MapScreen(incoming: MutableStateFlow<String?>, darkMap: Boolean, act
                     map.fit(it)
                 }
             }.onFailure { toast(res.getString(R.string.route_gpx_read_error, it.message)) }
+        }
+    }
+
+    fun showHere(loc: Location, frame: Boolean) {
+        here = loc
+        if (status.running) return
+        map.showHere(loc.latLng(), loc.radius())
+        if (frame) map.fitHere()
+    }
+
+    /** Shows the device's real position; [center] also frames it unless the user moves the map first. */
+    fun locate(center: Boolean) {
+        if (!perm.location) {
+            if (center) onOpen(Screen.SETUP)
+            return
+        }
+        centerOnHere = center
+        scope.launch {
+            val last = lastKnown(ctx)
+            last?.let { showHere(it, centerOnHere) }
+            val fresh = currentLocation(ctx)
+            when {
+                fresh != null -> showHere(fresh, centerOnHere && (last == null || last.distanceTo(fresh) > fresh.accuracy / 2))
+                last == null && center -> toast(res.getString(R.string.map_location_unavailable))
+            }
+            centerOnHere = false
         }
     }
 
@@ -375,7 +414,10 @@ private fun MapScreen(incoming: MutableStateFlow<String?>, darkMap: Boolean, act
             map.view.performHapticFeedback(HapticFeedbackConstants.LONG_PRESS)
             choose(p, null, null)
         }
-        map.onUserGesture = { follow = false }
+        map.onUserGesture = {
+            follow = false
+            centerOnHere = false
+        }
     }
 
     LaunchedEffect(selection) {
@@ -416,6 +458,15 @@ private fun MapScreen(incoming: MutableStateFlow<String?>, darkMap: Boolean, act
         if (p != null && follow) map.moveTo(p)
     }
     LaunchedEffect(status.running, status.joystick) { joystickPref = prefs.joystickEnabled }
+    // While mocking, Android reports the mocked position, which already has its own marker.
+    LaunchedEffect(map, status.running) {
+        val h = here.takeUnless { status.running }
+        map.showHere(h?.latLng(), h?.radius() ?: 0.0)
+    }
+    // Also refreshes after mocking stops, since the app may have opened while it was running.
+    LaunchedEffect(perm.location, status.running) {
+        if (perm.location && !status.running) locate(center = false)
+    }
 
     val navBottom = WindowInsets.navigationBars.getBottom(density)
     val peek = if (summaryPx == 0) 220.dp else with(density) { (summaryPx + navBottom).toDp() } + 28.dp
@@ -607,10 +658,12 @@ private fun MapScreen(incoming: MutableStateFlow<String?>, darkMap: Boolean, act
 
             SmallFloatingActionButton(
                 onClick = {
-                    val target = status.position.takeIf { status.running } ?: selection ?: lastKnown(ctx)
-                    if (target != null) {
-                        map.moveTo(target, 14.0)
-                        follow = status.running
+                    val mock = status.position.takeIf { status.running }
+                    if (mock != null) {
+                        map.moveTo(mock, 14.0)
+                        follow = true
+                    } else {
+                        locate(center = true)
                     }
                 },
                 modifier = Modifier.align(Alignment.TopEnd).offset {
@@ -647,15 +700,45 @@ private fun MapScreen(incoming: MutableStateFlow<String?>, darkMap: Boolean, act
     }
 }
 
+private fun Location.latLng() = LatLng(latitude, longitude)
+
+/** With only approximate permission Android blurs fixes to about 2 km and usually reports that as the accuracy. */
+private fun Location.radius() = if (hasAccuracy()) accuracy.toDouble() else 2000.0
+
+/** The newest real fix any provider remembers; mocked ones (ours or another app's) don't count. */
 @SuppressLint("MissingPermission")
-private fun lastKnown(ctx: Context): LatLng? {
+private fun lastKnown(ctx: Context): Location? {
     if (!Permissions.hasLocation(ctx)) return null
     val lm = ctx.getSystemService(LocationManager::class.java)
     return lm.getProviders(true)
         .mapNotNull { runCatching { lm.getLastKnownLocation(it) }.getOrNull() }
+        .filterNot { LocationCompat.isMock(it) }
         .maxByOrNull { it.time }
-        ?.let { LatLng(it.latitude, it.longitude) }
 }
+
+/** A fresh real fix from whichever provider answers first, or null when location is off or none arrives within 15 seconds. */
+private suspend fun currentLocation(ctx: Context): Location? {
+    val lm = ctx.getSystemService(LocationManager::class.java)
+    if (!Permissions.hasLocation(ctx) || !LocationManagerCompat.isLocationEnabled(lm)) return null
+    val providers = runCatching { lm.getProviders(true) }.getOrDefault(emptyList()) - LocationManager.PASSIVE_PROVIDER
+    return withTimeoutOrNull(15_000) {
+        channelFlow {
+            for (p in providers) launch { oneFix(ctx, lm, p)?.let { send(it) } }
+        }.firstOrNull { !LocationCompat.isMock(it) }
+    }
+}
+
+@SuppressLint("MissingPermission")
+private suspend fun oneFix(ctx: Context, lm: LocationManager, provider: String): Location? =
+    suspendCancellableCoroutine { cont ->
+        val cancel = CancellationSignal()
+        cont.invokeOnCancellation { cancel.cancel() }
+        try {
+            LocationManagerCompat.getCurrentLocation(lm, provider, cancel, ContextCompat.getMainExecutor(ctx)) { cont.resume(it) }
+        } catch (e: RuntimeException) {
+            cont.resume(null)
+        }
+    }
 
 // ---- top of the map ---------------------------------------------------------------------------
 

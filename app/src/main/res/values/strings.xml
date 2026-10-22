@@ -66,6 +66,7 @@
     <string name="map_menu">Menu</string>
     <string name="map_menu_about">About &amp; privacy</string>
     <string name="map_my_location">Go to current location</string>
+    <string name="map_location_unavailable">Couldn\'t get the current location. Check that Location is on</string>
     <string name="map_result_coordinates">Coordinates</string>
     <!-- %1$s = error message -->
     <string name="map_search_error">Search error: %1$s</string>

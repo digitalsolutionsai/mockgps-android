@@ -64,6 +64,7 @@
     <string name="map_menu">Menu</string>
     <string name="map_menu_about">À propos et confidentialité</string>
     <string name="map_my_location">Aller à la position actuelle</string>
+    <string name="map_location_unavailable">Impossible d\'obtenir la position actuelle. Vérifiez que la localisation est activée</string>
     <string name="map_result_coordinates">Coordonnées</string>
     <!-- %1$s = error message -->
     <string name="map_search_error">Erreur de recherche : %1$s</string>

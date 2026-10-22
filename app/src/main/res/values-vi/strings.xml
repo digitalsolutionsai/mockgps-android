@@ -64,6 +64,7 @@
     <string name="map_menu">Menu</string>
     <string name="map_menu_about">Giới thiệu &amp; quyền riêng tư</string>
     <string name="map_my_location">Về vị trí hiện tại</string>
+    <string name="map_location_unavailable">Không lấy được vị trí hiện tại. Kiểm tra xem Vị trí đã bật chưa</string>
     <string name="map_result_coordinates">Tọa độ</string>
     <!-- %1$s = error message -->
     <string name="map_search_error">Lỗi tìm kiếm: %1$s</string>

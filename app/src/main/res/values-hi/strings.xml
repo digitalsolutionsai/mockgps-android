@@ -64,6 +64,7 @@
     <string name="map_menu">मेन्यू</string>
     <string name="map_menu_about">जानकारी और निजता</string>
     <string name="map_my_location">मौजूदा लोकेशन पर जाएं</string>
+    <string name="map_location_unavailable">मौजूदा लोकेशन नहीं मिल सकी। देखें कि लोकेशन चालू है</string>
     <string name="map_result_coordinates">कोऑर्डिनेट</string>
     <!-- %1$s = error message -->
     <string name="map_search_error">खोज में गड़बड़ी: %1$s</string>

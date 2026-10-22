@@ -64,6 +64,7 @@
     <string name="map_menu">เมนู</string>
     <string name="map_menu_about">เกี่ยวกับและความเป็นส่วนตัว</string>
     <string name="map_my_location">ไปที่ตำแหน่งปัจจุบัน</string>
+    <string name="map_location_unavailable">ไม่สามารถระบุตำแหน่งปัจจุบันได้ โปรดตรวจสอบว่าเปิดตำแหน่งอยู่</string>
     <string name="map_result_coordinates">พิกัด</string>
     <!-- %1$s = error message -->
     <string name="map_search_error">ค้นหาผิดพลาด: %1$s</string>

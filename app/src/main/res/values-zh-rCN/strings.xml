@@ -64,6 +64,7 @@
     <string name="map_menu">菜单</string>
     <string name="map_menu_about">关于和隐私</string>
     <string name="map_my_location">回到当前位置</string>
+    <string name="map_location_unavailable">无法获取当前位置，请检查位置信息是否已开启</string>
     <string name="map_result_coordinates">坐标</string>
     <!-- %1$s = error message -->
     <string name="map_search_error">搜索出错：%1$s</string>

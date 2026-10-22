@@ -64,6 +64,7 @@
     <string name="map_menu">Menü</string>
     <string name="map_menu_about">Hakkında ve gizlilik</string>
     <string name="map_my_location">Geçerli konuma git</string>
+    <string name="map_location_unavailable">Mevcut konum alınamadı. Konumun açık olduğunu kontrol edin</string>
     <string name="map_result_coordinates">Koordinatlar</string>
     <!-- %1$s = error message -->
     <string name="map_search_error">Arama hatası: %1$s</string>

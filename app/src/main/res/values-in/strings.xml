@@ -64,6 +64,7 @@
     <string name="map_menu">Menu</string>
     <string name="map_menu_about">Tentang &amp; privasi</string>
     <string name="map_my_location">Ke lokasi saat ini</string>
+    <string name="map_location_unavailable">Tidak dapat memperoleh lokasi saat ini. Pastikan Lokasi aktif</string>
     <string name="map_result_coordinates">Koordinat</string>
     <!-- %1$s = error message -->
     <string name="map_search_error">Kesalahan pencarian: %1$s</string>
